@@ -1,4 +1,4 @@
-# KZNodes - Framework for creating node based visual editors, like Origami.
+# KZNodes - Node based visual editors like Origami made easy.
 
 [![Version](https://img.shields.io/cocoapods/v/KZNodes.svg?style=flat)](http://cocoadocs.org/docsets/KZNodes)
 [![License](https://img.shields.io/cocoapods/l/KZNodes.svg?style=flat)](http://cocoadocs.org/docsets/KZNodes)
@@ -49,6 +49,7 @@ You can create a new node class as follows:
 - `Output = sqrtf(input)`
 
 There are also 2 more advanced creator functions:
+
 1. KZNNodeType withClass allows you to change base class used for a node, eg. use node with slider.
 2. KZNNodeType withBuilder allows you to use builder pattern instead of simplified syntax.
 
