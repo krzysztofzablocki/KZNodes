@@ -1,0 +1,6 @@
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/KZNodes" "${PODS_ROOT}/Headers/Public/KZPlayground" "${PODS_ROOT}/Headers/Public/NHBalancedFlowLayout" "${PODS_ROOT}/Headers/Public/RSSwizzle" "${PODS_ROOT}/Headers/Public/dyci"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/KZNodes" -isystem "${PODS_ROOT}/Headers/Public/KZPlayground" -isystem "${PODS_ROOT}/Headers/Public/NHBalancedFlowLayout" -isystem "${PODS_ROOT}/Headers/Public/RSSwizzle" -isystem "${PODS_ROOT}/Headers/Public/dyci"
+OTHER_LDFLAGS = -ObjC -l"Pods-KZNodes-KZNodes" -l"Pods-KZNodes-KZPlayground" -l"Pods-KZNodes-NHBalancedFlowLayout" -l"Pods-KZNodes-RSSwizzle" -l"Pods-KZNodes-dyci" -framework "Foundation"
+OTHER_LIBTOOLFLAGS = $(OTHER_LDFLAGS)
+PODS_ROOT = ${SRCROOT}/Pods

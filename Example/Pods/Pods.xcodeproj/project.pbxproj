@@ -1,0 +1,1398 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0569E0891DC9AA1C5E6B375F /* KZNNodeType.h in Headers */ = {isa = PBXBuildFile; fileRef = 577082E7ABEA4B98929155C0 /* KZNNodeType.h */; };
+		059A85656BFC4C9714A7CE98 /* KZPPlaygroundViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E2A1400C5A3CE0C35F8001A /* KZPPlaygroundViewController.h */; };
+		09621AB3FC928C6D35FC7CB7 /* KZNWorkspace.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B52A7BF2F933348E3CC34D7 /* KZNWorkspace.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		1192DC39AC49CC50615FAED1 /* KZPComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = D9C7EA344D63BC4CC2F653CE /* KZPComponent.h */; };
+		13F6318D9190CD12E8A114BC /* KZPPresenterInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A38793B65573C5DA93450DC3 /* KZPPresenterInfoViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		15C294E6AF60011F17DA8B73 /* NHBalancedFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D7AF15C08CD9A8263C619C /* NHBalancedFlowLayout.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		16BDC05A5BABD27A2207A447 /* UIViewController+XIBSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = 866418D2D28D0CCA8E0D17D1 /* UIViewController+XIBSupport.h */; };
+		16FC718ED32E7AA6B639F8DD /* SFInjectionsNotificationsCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D7E052B2A0AABA82F792AA3 /* SFInjectionsNotificationsCenter.h */; };
+		1E9067C0E0665706A836F0A7 /* NSSet+ClassesList.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A3C34909E804621F72D75C /* NSSet+ClassesList.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
+		1EED4065532FC5779E091DCC /* NSSet+ClassesList.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EA830916DA741B70704E374 /* NSSet+ClassesList.h */; };
+		201F6C2ADC6EE6BADDBE5A5A /* KZNNodeType.m in Sources */ = {isa = PBXBuildFile; fileRef = A3987A8ECCE049BAD6B18C09 /* KZNNodeType.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		20FC237EB5B5E909F0033F58 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9CCF0850BD1015C4A87C7A5 /* Foundation.framework */; };
+		213FC879F52F254751F76A5F /* KZNWorkspace.h in Headers */ = {isa = PBXBuildFile; fileRef = 7BACA291582433A4369CF03C /* KZNWorkspace.h */; };
+		2156E2B83CBCA0DF82ED78EA /* KZPPlaygroundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9727580EA03D10200BD055 /* KZPPlaygroundViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		22184E51A1148FCB74780550 /* KZPValueAdjustComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AEB5330444ECF93AF6E18B2 /* KZPValueAdjustComponent.h */; };
+		249A89D757EE1A3CA88473D2 /* KZPImagePickerComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = AE560564FBC2A315D177B6B3 /* KZPImagePickerComponent.h */; };
+		2C0A972E6CFF0DA074E400D7 /* KZPSynchronizationComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = E8021FCA88938DEF0AF877EB /* KZPSynchronizationComponent.h */; };
+		2CD2AA316F0FC4BB150C7DA6 /* KZPPlayground.m in Sources */ = {isa = PBXBuildFile; fileRef = 920CF8F3C0003580DB709C56 /* KZPPlayground.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		30A564BB6CAB79EBC8B68541 /* KZPImagePickerComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 57B3AA78EA8310D369F4AB8C /* KZPImagePickerComponent.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		34E861EA4EF46BC6A4C673CF /* Pods-KZNodes-dyci-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EE955965AB1FBBE2BA4C0023 /* Pods-KZNodes-dyci-dummy.m */; };
+		36E3C694B14CDE2CA8202440 /* Pods-KZNodes-NHBalancedFlowLayout-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D4E7A3F785AF5E638C6257C /* Pods-KZNodes-NHBalancedFlowLayout-dummy.m */; };
+		3A8BF7834B7F33D57D36EE4D /* SFFileWatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 79481F6EFED37107FC7963A0 /* SFFileWatcher.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
+		3E545F4ADC2ED0AD96682379 /* KZNSocket+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = A43619160E9DBB74F65E717E /* KZNSocket+Internal.h */; };
+		44B82F6A15030AA965B88F95 /* KZPPresenterComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCCFD893E49376C046AA2C7 /* KZPPresenterComponent.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		4726C7C04E16EFD1A6E6B8E3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9CCF0850BD1015C4A87C7A5 /* Foundation.framework */; };
+		4BE6034110E2656771D052F1 /* KZPPresenterComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = C790BAC11203DB297C69EEB9 /* KZPPresenterComponent.h */; };
+		52E947BBD38AAF92EBF4CCB5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9CCF0850BD1015C4A87C7A5 /* Foundation.framework */; };
+		5EB78FEE00656030B88431FA /* KZPPlayground+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = DBA828EDD788279C40C8B7A0 /* KZPPlayground+Internal.h */; };
+		61E29DE0785249CD65D736C2 /* RSSwizzle.h in Headers */ = {isa = PBXBuildFile; fileRef = 8864990458DC815D67E60134 /* RSSwizzle.h */; };
+		630E9255C13454260E53C9E9 /* SFDynamicCodeInjection.m in Sources */ = {isa = PBXBuildFile; fileRef = C2A3D265047E5C538F6176C7 /* SFDynamicCodeInjection.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
+		640304D34FB96AB7EB529DAE /* KZNNodeWithSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C88B3F5DB95944CD581067 /* KZNNodeWithSlider.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		64977E07FCAEA21F860F7003 /* KZPAnimatorComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FED953D5C9E274791E84159 /* KZPAnimatorComponent.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		69AD84EFFA609EE2EC6E2E68 /* UIViewController+XIBSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 4559B94B3D9CFCC010263E04 /* UIViewController+XIBSupport.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
+		705E78F6BDB9E2B2DD4F8D93 /* UINib+StoryBoardSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = FF47DFCE81D16353A0A504B4 /* UINib+StoryBoardSupport.h */; };
+		749BE1D5351840604705B693 /* KZNNodeWithText.m in Sources */ = {isa = PBXBuildFile; fileRef = B7CD2F3478C59926035329CE /* KZNNodeWithText.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		7E23D6F7FB2DD5A1ED210FD2 /* KZPActionComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 002FEA670326AAD9BCEDD9EF /* KZPActionComponent.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		80DD8E64A75E01E5E941A132 /* KZPSynchronizationComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 062C545903F5A65A3EBE2036 /* KZPSynchronizationComponent.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		82B07BF98C0E399B2E115052 /* KZPImagePickerCollectionViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 517B7DE829FB9F4254D42AD6 /* KZPImagePickerCollectionViewController.h */; };
+		8703575C791EEC9405FE29FF /* Pods-KZNodes-KZNodes-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 32F888971B9D6062FC6C0961 /* Pods-KZNodes-KZNodes-dummy.m */; };
+		8A62792FDDA1F15D04BCE84A /* KZNNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 04EBD8A696CE03BCDCB00E57 /* KZNNode.h */; };
+		8EC5344E9418130FC2412E2F /* NHBalancedFlowLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 66239B9D20051892E53F7DC9 /* NHBalancedFlowLayout.h */; };
+		8F79C6A1D7F884885B356DF0 /* RSSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 038488D092EA3F2C98EAE254 /* RSSwizzle.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
+		97F6DD6CE6F3CA40910CF497 /* NHLinearPartition.h in Headers */ = {isa = PBXBuildFile; fileRef = B6F222680B5B126D73FD275A /* NHLinearPartition.h */; };
+		9871426472744877BADE58C4 /* KZNGridView.h in Headers */ = {isa = PBXBuildFile; fileRef = 82739B8AAC9E7EDC1488B1BA /* KZNGridView.h */; };
+		9D886B61C4E1317D9E2543FF /* SFFileWatcherDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = EF515D3EC119094A709A20D6 /* SFFileWatcherDelegate.h */; };
+		AD6130D9AC5559B509A4722C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9CCF0850BD1015C4A87C7A5 /* Foundation.framework */; };
+		B74EA0E317BA0068295D42FF /* SFDynamicCodeInjection.h in Headers */ = {isa = PBXBuildFile; fileRef = A7EA572B707AFBA6BCADC4EE /* SFDynamicCodeInjection.h */; };
+		BD82DB112776756039CB0C33 /* KZPTimelineViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 154BB48ED1F0832B6721920B /* KZPTimelineViewController.h */; };
+		C0E48CB20A5FCF88EB57E00D /* KZPActionComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = BDF27D572BDD8F95A8087520 /* KZPActionComponent.h */; };
+		C7380CB60A2952DC7CA7379E /* SFFileWatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F74FF4D613CD8D7B422C1A7 /* SFFileWatcher.h */; };
+		CA45179098DF3EE0D4E58958 /* NHLinearPartition.m in Sources */ = {isa = PBXBuildFile; fileRef = B28B2D8D50976C9089FFD0BA /* NHLinearPartition.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		CB7FC2396438C476F0BC0EA8 /* NSObject+DyCInjection.h in Headers */ = {isa = PBXBuildFile; fileRef = FC5FC5B8BA1484C6A32DB876 /* NSObject+DyCInjection.h */; };
+		CB8F674D2831FCD216C003FD /* Pods-KZNodes-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D3917173396561ECC43862 /* Pods-KZNodes-dummy.m */; };
+		CD99A7E233BC2380A7E3F9C7 /* KZNNode.m in Sources */ = {isa = PBXBuildFile; fileRef = A51E883071A82180C7014910 /* KZNNode.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		CE2A3A5279BF0DC6FF84A8CE /* KZNNodeWithSlider.h in Headers */ = {isa = PBXBuildFile; fileRef = 7B62C6C427BD05F56CFBA97A /* KZNNodeWithSlider.h */; };
+		D81A271B8475ED5972DEBB4A /* KZPAnimatorComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 03CCD21F30409A3187184C75 /* KZPAnimatorComponent.h */; };
+		D8B0CF7EB6498FE82394A124 /* KZPPresenterInfoViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 17AB0F5B46E1C526A46DE2DD /* KZPPresenterInfoViewController.h */; };
+		D9A178335E881C880CF670EC /* KZPSnapshotView.h in Headers */ = {isa = PBXBuildFile; fileRef = 28A6050F250E0E5B4B279E37 /* KZPSnapshotView.h */; };
+		D9D15F943A3E5388AC812CE8 /* KZPTimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8558C7B549E6A4AB1A880C96 /* KZPTimelineViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		DB58FE61DCB8608BEB0410B9 /* NSObject+DyCInjection.m in Sources */ = {isa = PBXBuildFile; fileRef = 24234B108BCCFC7010850705 /* NSObject+DyCInjection.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		DBD0EC06FB8E612A44F6E09C /* KZNNodeWithText.h in Headers */ = {isa = PBXBuildFile; fileRef = D4D75938D9BAFF55FED6EF64 /* KZNNodeWithText.h */; };
+		DD1CFE98EF5CD9E8CA918E33 /* Pods-KZNodes-RSSwizzle-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FE8DE9AE3A552B8628BD4B6F /* Pods-KZNodes-RSSwizzle-dummy.m */; };
+		DF1EFA4059C2EE530338706F /* KZNSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A875DCBF82E99E15CD3BE75 /* KZNSocket.h */; };
+		E4EE5331B6AF49D5979846F4 /* KZPImagePickerCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC392AED391A2AA0ED65EB6 /* KZPImagePickerCollectionViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		E72811B7FED6727CDE1ACEB7 /* Pods-KZNodes-KZPlayground-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F3F4BA9FF4771B7A1A6B6BF0 /* Pods-KZNodes-KZPlayground-dummy.m */; };
+		EDED6DD7B7D693156DD86AAF /* KZPValueAdjustComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 90782D88608E1FB1A02FFAAF /* KZPValueAdjustComponent.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		F2EFC02AA7037D1400288B56 /* KZNGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0114F59E0CA22A374812E8DD /* KZNGridView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		F5842F65FB68758537CCB028 /* SFInjectionsNotificationsCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D26935D2BEEF19C9BA3AEBEA /* SFInjectionsNotificationsCenter.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
+		F75C1CFA85B06C3107B87521 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9CCF0850BD1015C4A87C7A5 /* Foundation.framework */; };
+		F8FE07D5DB402C3A12017C37 /* KZPPlayground.h in Headers */ = {isa = PBXBuildFile; fileRef = D55D34423434FAD73CF1C617 /* KZPPlayground.h */; };
+		F909B5803E4FAEE5AE95E3D4 /* KZNSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC25BFEC5702BD3209BC2FB /* KZNSocket.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		FD2D521BE567F32E89BF7047 /* UINib+StoryBoardSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = E66581F46E3DE1306291F96D /* UINib+StoryBoardSupport.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
+		FF4A8D3AE79633B93135CEAC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9CCF0850BD1015C4A87C7A5 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0F4803E912A385ED436F9F1F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 706711B703393CFFADDA0FD4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4EEBB18E94DCE21E2BBA23D1;
+			remoteInfo = "Pods-KZNodes-NHBalancedFlowLayout";
+		};
+		21DD86AB7B003EA744A004DD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 706711B703393CFFADDA0FD4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CDF2840CE00A1AA831DC1159;
+			remoteInfo = "Pods-KZNodes-dyci";
+		};
+		4047F4868D441BD9661DAB0D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 706711B703393CFFADDA0FD4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4EEBB18E94DCE21E2BBA23D1;
+			remoteInfo = "Pods-KZNodes-NHBalancedFlowLayout";
+		};
+		52CC6ED64F809AA33EDD7214 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 706711B703393CFFADDA0FD4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F06E5347C96A5DA68CEFB5CB;
+			remoteInfo = "Pods-KZNodes-RSSwizzle";
+		};
+		621A1CC0A773AED000B1AE5B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 706711B703393CFFADDA0FD4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F06E5347C96A5DA68CEFB5CB;
+			remoteInfo = "Pods-KZNodes-RSSwizzle";
+		};
+		67BA28CD465F568624184172 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 706711B703393CFFADDA0FD4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 00D3106D87189556FB6B3DB0;
+			remoteInfo = "Pods-KZNodes-KZPlayground";
+		};
+		C43D181EA377B75E93721534 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 706711B703393CFFADDA0FD4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CDF2840CE00A1AA831DC1159;
+			remoteInfo = "Pods-KZNodes-dyci";
+		};
+		F4EFD6F7D53F341E121ECBB8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 706711B703393CFFADDA0FD4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BE4046D6260D4765F4676DAE;
+			remoteInfo = "Pods-KZNodes-KZNodes";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		002FEA670326AAD9BCEDD9EF /* KZPActionComponent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KZPActionComponent.m; path = Pod/Classes/Components/Controls/Action/KZPActionComponent.m; sourceTree = "<group>"; };
+		0114F59E0CA22A374812E8DD /* KZNGridView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KZNGridView.m; path = Pod/Classes/Workspace/GridView/KZNGridView.m; sourceTree = "<group>"; };
+		0370CA69637DD52F373239AE /* KZNNodeWithText.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = KZNNodeWithText.xib; path = Pod/Assets/KZNNodeWithText.xib; sourceTree = "<group>"; };
+		038488D092EA3F2C98EAE254 /* RSSwizzle.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RSSwizzle.m; path = RSSwizzle/RSSwizzle.m; sourceTree = "<group>"; };
+		03CCD21F30409A3187184C75 /* KZPAnimatorComponent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KZPAnimatorComponent.h; path = Pod/Classes/Components/Animation/KZPAnimatorComponent.h; sourceTree = "<group>"; };
+		04EBD8A696CE03BCDCB00E57 /* KZNNode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KZNNode.h; path = Pod/Classes/Node/KZNNode.h; sourceTree = "<group>"; };
+		062C545903F5A65A3EBE2036 /* KZPSynchronizationComponent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KZPSynchronizationComponent.m; path = Pod/Classes/Components/Synchronization/KZPSynchronizationComponent.m; sourceTree = "<group>"; };
+		0C9D0996EA2691021F0F1473 /* libPods-KZNodes.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KZNodes.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D4E7A3F785AF5E638C6257C /* Pods-KZNodes-NHBalancedFlowLayout-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-KZNodes-NHBalancedFlowLayout-dummy.m"; sourceTree = "<group>"; };
+		0F64EEB17F535D9C92403922 /* KZNSocket_Input.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = KZNSocket_Input.xib; path = Pod/Assets/KZNSocket_Input.xib; sourceTree = "<group>"; };
+		0FED953D5C9E274791E84159 /* KZPAnimatorComponent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KZPAnimatorComponent.m; path = Pod/Classes/Components/Animation/KZPAnimatorComponent.m; sourceTree = "<group>"; };
+		154BB48ED1F0832B6721920B /* KZPTimelineViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KZPTimelineViewController.h; path = Pod/Classes/Timeline/KZPTimelineViewController.h; sourceTree = "<group>"; };
+		17AB0F5B46E1C526A46DE2DD /* KZPPresenterInfoViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KZPPresenterInfoViewController.h; path = Pod/Classes/Components/Presenter/KZPPresenterInfoViewController.h; sourceTree = "<group>"; };
+		1C1E7161B3F3DF60AC68378B /* KZNSocket_Output.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = KZNSocket_Output.xib; path = Pod/Assets/KZNSocket_Output.xib; sourceTree = "<group>"; };
+		1CC25BFEC5702BD3209BC2FB /* KZNSocket.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KZNSocket.m; path = Pod/Classes/Socket/KZNSocket.m; sourceTree = "<group>"; };
+		1F74FF4D613CD8D7B422C1A7 /* SFFileWatcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SFFileWatcher.h; path = "Dynamic Code Injection/dyci/Classes/FileWatcher/SFFileWatcher.h"; sourceTree = "<group>"; };
+		2203E4F4AE069092860EA4CB /* Main.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; name = Main.storyboard; path = Pod/Assets/Main.storyboard; sourceTree = "<group>"; };
+		22B8B33D5F3FFCE06F7073A5 /* Pods-KZNodes-RSSwizzle-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KZNodes-RSSwizzle-Private.xcconfig"; sourceTree = "<group>"; };
+		23E773805BDC35F6E1733DFF /* Pods-KZNodes-KZPlayground-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-KZNodes-KZPlayground-prefix.pch"; sourceTree = "<group>"; };
+		240C4652317D805CAA747305 /* Pods-KZNodes-KZNodes.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KZNodes-KZNodes.xcconfig"; sourceTree = "<group>"; };
+		24234B108BCCFC7010850705 /* NSObject+DyCInjection.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+DyCInjection.m"; path = "Dynamic Code Injection/dyci/Classes/Injections/NSObject+DyCInjection.m"; sourceTree = "<group>"; };
+		25C88B3F5DB95944CD581067 /* KZNNodeWithSlider.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KZNNodeWithSlider.m; path = Pod/Classes/Node/WithSlider/KZNNodeWithSlider.m; sourceTree = "<group>"; };
+		28A6050F250E0E5B4B279E37 /* KZPSnapshotView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KZPSnapshotView.h; path = Pod/Classes/Components/KZPSnapshotView.h; sourceTree = "<group>"; };
+		2A9727580EA03D10200BD055 /* KZPPlaygroundViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KZPPlaygroundViewController.m; path = Pod/Classes/Playground/KZPPlaygroundViewController.m; sourceTree = "<group>"; };
+		32F888971B9D6062FC6C0961 /* Pods-KZNodes-KZNodes-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-KZNodes-KZNodes-dummy.m"; sourceTree = "<group>"; };
+		3DCCFD893E49376C046AA2C7 /* KZPPresenterComponent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KZPPresenterComponent.m; path = Pod/Classes/Components/Presenter/KZPPresenterComponent.m; sourceTree = "<group>"; };
+		411987301F258D5D34784486 /* libPods-KZNodes-RSSwizzle.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KZNodes-RSSwizzle.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4559B94B3D9CFCC010263E04 /* UIViewController+XIBSupport.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+XIBSupport.m"; path = "Dynamic Code Injection/dyci/Classes/Injections/UIViewController+XIBSupport.m"; sourceTree = "<group>"; };
+		458589F92D04C3AAAD878D69 /* KZNAssets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = KZNAssets.xcassets; path = Pod/Assets/KZNAssets.xcassets; sourceTree = "<group>"; };
+		4B52A7BF2F933348E3CC34D7 /* KZNWorkspace.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KZNWorkspace.m; path = Pod/Classes/Workspace/KZNWorkspace.m; sourceTree = "<group>"; };
+		4BF6FC2848B7AE6823C29F5C /* Pods-KZNodes-KZNodes-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KZNodes-KZNodes-Private.xcconfig"; sourceTree = "<group>"; };
+		4BF96E9068859F9E9D65D48F /* Pods-KZNodes-NHBalancedFlowLayout-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KZNodes-NHBalancedFlowLayout-Private.xcconfig"; sourceTree = "<group>"; };
+		4D7E052B2A0AABA82F792AA3 /* SFInjectionsNotificationsCenter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SFInjectionsNotificationsCenter.h; path = "Dynamic Code Injection/dyci/Classes/Notifications/SFInjectionsNotificationsCenter.h"; sourceTree = "<group>"; };
+		4EA830916DA741B70704E374 /* NSSet+ClassesList.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSSet+ClassesList.h"; path = "Dynamic Code Injection/dyci/Classes/Categories/NSSet+ClassesList.h"; sourceTree = "<group>"; };
+		517B7DE829FB9F4254D42AD6 /* KZPImagePickerCollectionViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KZPImagePickerCollectionViewController.h; path = Pod/Classes/Components/Images/ImagePicker/AssetBrowser/KZPImagePickerCollectionViewController.h; sourceTree = "<group>"; };
+		577082E7ABEA4B98929155C0 /* KZNNodeType.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KZNNodeType.h; path = Pod/Classes/NodeType/KZNNodeType.h; sourceTree = "<group>"; };
+		57B3AA78EA8310D369F4AB8C /* KZPImagePickerComponent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KZPImagePickerComponent.m; path = Pod/Classes/Components/Images/ImagePicker/KZPImagePickerComponent.m; sourceTree = "<group>"; };
+		5F9F71768FA929732F06BD15 /* KZNWorkspaceBlockCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = KZNWorkspaceBlockCell.xib; path = Pod/Assets/KZNWorkspaceBlockCell.xib; sourceTree = "<group>"; };
+		6060D61A2B7A4325E3A48B92 /* Pods-KZNodes-dyci-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KZNodes-dyci-Private.xcconfig"; sourceTree = "<group>"; };
+		63A3C34909E804621F72D75C /* NSSet+ClassesList.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSSet+ClassesList.m"; path = "Dynamic Code Injection/dyci/Classes/Categories/NSSet+ClassesList.m"; sourceTree = "<group>"; };
+		66239B9D20051892E53F7DC9 /* NHBalancedFlowLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NHBalancedFlowLayout.h; path = NHBalancedFlowLayout/NHBalancedFlowLayout.h; sourceTree = "<group>"; };
+		69B198C10B058AD6B93BDAC3 /* Pods-KZNodes-KZNodes-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-KZNodes-KZNodes-prefix.pch"; sourceTree = "<group>"; };
+		6AF7C89A48F2C58028D39255 /* Pods-KZNodes-NHBalancedFlowLayout.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KZNodes-NHBalancedFlowLayout.xcconfig"; sourceTree = "<group>"; };
+		742E8497EA1FEA9B14A288AE /* Pods-KZNodes-KZPlayground-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KZNodes-KZPlayground-Private.xcconfig"; sourceTree = "<group>"; };
+		79481F6EFED37107FC7963A0 /* SFFileWatcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SFFileWatcher.m; path = "Dynamic Code Injection/dyci/Classes/FileWatcher/SFFileWatcher.m"; sourceTree = "<group>"; };
+		7AEB5330444ECF93AF6E18B2 /* KZPValueAdjustComponent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KZPValueAdjustComponent.h; path = Pod/Classes/Components/Controls/ValueAdjust/KZPValueAdjustComponent.h; sourceTree = "<group>"; };
+		7B62C6C427BD05F56CFBA97A /* KZNNodeWithSlider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KZNNodeWithSlider.h; path = Pod/Classes/Node/WithSlider/KZNNodeWithSlider.h; sourceTree = "<group>"; };
+		7BACA291582433A4369CF03C /* KZNWorkspace.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KZNWorkspace.h; path = Pod/Classes/Workspace/KZNWorkspace.h; sourceTree = "<group>"; };
+		7E55947B0291D404BA7106F9 /* KZNWorkspace.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = KZNWorkspace.xib; path = Pod/Assets/KZNWorkspace.xib; sourceTree = "<group>"; };
+		82739B8AAC9E7EDC1488B1BA /* KZNGridView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KZNGridView.h; path = Pod/Classes/Workspace/GridView/KZNGridView.h; sourceTree = "<group>"; };
+		83903229EE72EE45BC0D5B57 /* Pods-KZNodes-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-KZNodes-acknowledgements.markdown"; sourceTree = "<group>"; };
+		8558C7B549E6A4AB1A880C96 /* KZPTimelineViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KZPTimelineViewController.m; path = Pod/Classes/Timeline/KZPTimelineViewController.m; sourceTree = "<group>"; };
+		866418D2D28D0CCA8E0D17D1 /* UIViewController+XIBSupport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIViewController+XIBSupport.h"; path = "Dynamic Code Injection/dyci/Classes/Injections/UIViewController+XIBSupport.h"; sourceTree = "<group>"; };
+		8864990458DC815D67E60134 /* RSSwizzle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RSSwizzle.h; path = RSSwizzle/RSSwizzle.h; sourceTree = "<group>"; };
+		8922A94858F9DA70CAEDCB6E /* Pods-KZNodes-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-KZNodes-resources.sh"; sourceTree = "<group>"; };
+		8978A9E0FD6FC4594493CB87 /* KZNNode.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = KZNNode.xib; path = Pod/Assets/KZNNode.xib; sourceTree = "<group>"; };
+		8A875DCBF82E99E15CD3BE75 /* KZNSocket.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KZNSocket.h; path = Pod/Classes/Socket/KZNSocket.h; sourceTree = "<group>"; };
+		8DC392AED391A2AA0ED65EB6 /* KZPImagePickerCollectionViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KZPImagePickerCollectionViewController.m; path = Pod/Classes/Components/Images/ImagePicker/AssetBrowser/KZPImagePickerCollectionViewController.m; sourceTree = "<group>"; };
+		90782D88608E1FB1A02FFAAF /* KZPValueAdjustComponent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KZPValueAdjustComponent.m; path = Pod/Classes/Components/Controls/ValueAdjust/KZPValueAdjustComponent.m; sourceTree = "<group>"; };
+		920CF8F3C0003580DB709C56 /* KZPPlayground.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KZPPlayground.m; path = Pod/Classes/Playground/KZPPlayground.m; sourceTree = "<group>"; };
+		943D6B9FB94B19861D9C65C6 /* Pods-KZNodes-dyci-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-KZNodes-dyci-prefix.pch"; sourceTree = "<group>"; };
+		94D7AF15C08CD9A8263C619C /* NHBalancedFlowLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NHBalancedFlowLayout.m; path = NHBalancedFlowLayout/NHBalancedFlowLayout.m; sourceTree = "<group>"; };
+		9683F4EBE6C89A32EADE9CA2 /* Pods-KZNodes-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-KZNodes-acknowledgements.plist"; sourceTree = "<group>"; };
+		994843BBE5D0320B51470CF6 /* Pods-KZNodes-RSSwizzle-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-KZNodes-RSSwizzle-prefix.pch"; sourceTree = "<group>"; };
+		997AE57001BB5A0BF0D1B4C8 /* libPods-KZNodes-KZPlayground.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KZNodes-KZPlayground.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E2A1400C5A3CE0C35F8001A /* KZPPlaygroundViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KZPPlaygroundViewController.h; path = Pod/Classes/Playground/KZPPlaygroundViewController.h; sourceTree = "<group>"; };
+		A38793B65573C5DA93450DC3 /* KZPPresenterInfoViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KZPPresenterInfoViewController.m; path = Pod/Classes/Components/Presenter/KZPPresenterInfoViewController.m; sourceTree = "<group>"; };
+		A3987A8ECCE049BAD6B18C09 /* KZNNodeType.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KZNNodeType.m; path = Pod/Classes/NodeType/KZNNodeType.m; sourceTree = "<group>"; };
+		A43619160E9DBB74F65E717E /* KZNSocket+Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "KZNSocket+Internal.h"; path = "Pod/Classes/Socket/KZNSocket+Internal.h"; sourceTree = "<group>"; };
+		A51E883071A82180C7014910 /* KZNNode.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KZNNode.m; path = Pod/Classes/Node/KZNNode.m; sourceTree = "<group>"; };
+		A7EA572B707AFBA6BCADC4EE /* SFDynamicCodeInjection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SFDynamicCodeInjection.h; path = "Dynamic Code Injection/dyci/Classes/SFDynamicCodeInjection.h"; sourceTree = "<group>"; };
+		A84981903782238CFFACBFF3 /* KZPPresenterInfoViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = KZPPresenterInfoViewController.xib; path = Pod/Assets/KZPPresenterInfoViewController.xib; sourceTree = "<group>"; };
+		AE560564FBC2A315D177B6B3 /* KZPImagePickerComponent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KZPImagePickerComponent.h; path = Pod/Classes/Components/Images/ImagePicker/KZPImagePickerComponent.h; sourceTree = "<group>"; };
+		B16BF91B0468D8851DA05549 /* libPods-KZNodes-KZNodes.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KZNodes-KZNodes.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B28B2D8D50976C9089FFD0BA /* NHLinearPartition.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NHLinearPartition.m; path = NHBalancedFlowLayout/NHLinearPartition.m; sourceTree = "<group>"; };
+		B6F222680B5B126D73FD275A /* NHLinearPartition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NHLinearPartition.h; path = NHBalancedFlowLayout/NHLinearPartition.h; sourceTree = "<group>"; };
+		B7CD2F3478C59926035329CE /* KZNNodeWithText.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KZNNodeWithText.m; path = Pod/Classes/Node/WithText/KZNNodeWithText.m; sourceTree = "<group>"; };
+		BDF27D572BDD8F95A8087520 /* KZPActionComponent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KZPActionComponent.h; path = Pod/Classes/Components/Controls/Action/KZPActionComponent.h; sourceTree = "<group>"; };
+		BF881C769618CA4AB62F455C /* libPods-KZNodes-NHBalancedFlowLayout.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KZNodes-NHBalancedFlowLayout.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2A3D265047E5C538F6176C7 /* SFDynamicCodeInjection.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SFDynamicCodeInjection.m; path = "Dynamic Code Injection/dyci/Classes/SFDynamicCodeInjection.m"; sourceTree = "<group>"; };
+		C6F6531B5A20BE56A4272BF7 /* Pods-KZNodes-NHBalancedFlowLayout-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-KZNodes-NHBalancedFlowLayout-prefix.pch"; sourceTree = "<group>"; };
+		C790BAC11203DB297C69EEB9 /* KZPPresenterComponent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KZPPresenterComponent.h; path = Pod/Classes/Components/Presenter/KZPPresenterComponent.h; sourceTree = "<group>"; };
+		CBD93FD10CD29D3856D36059 /* Pods-KZNodes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KZNodes.debug.xcconfig"; sourceTree = "<group>"; };
+		D26935D2BEEF19C9BA3AEBEA /* SFInjectionsNotificationsCenter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SFInjectionsNotificationsCenter.m; path = "Dynamic Code Injection/dyci/Classes/Notifications/SFInjectionsNotificationsCenter.m"; sourceTree = "<group>"; };
+		D3D3917173396561ECC43862 /* Pods-KZNodes-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-KZNodes-dummy.m"; sourceTree = "<group>"; };
+		D4D75938D9BAFF55FED6EF64 /* KZNNodeWithText.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KZNNodeWithText.h; path = Pod/Classes/Node/WithText/KZNNodeWithText.h; sourceTree = "<group>"; };
+		D55D34423434FAD73CF1C617 /* KZPPlayground.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KZPPlayground.h; path = Pod/Classes/Playground/KZPPlayground.h; sourceTree = "<group>"; };
+		D9C7EA344D63BC4CC2F653CE /* KZPComponent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KZPComponent.h; path = Pod/Classes/Components/KZPComponent.h; sourceTree = "<group>"; };
+		DBA828EDD788279C40C8B7A0 /* KZPPlayground+Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "KZPPlayground+Internal.h"; path = "Pod/Classes/Playground/KZPPlayground+Internal.h"; sourceTree = "<group>"; };
+		E2E0F30B8FC596DA8AA7778B /* Pods-KZNodes-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-KZNodes-environment.h"; sourceTree = "<group>"; };
+		E36B010886A86B2B3B7E0459 /* Pods-KZNodes-dyci.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KZNodes-dyci.xcconfig"; sourceTree = "<group>"; };
+		E66581F46E3DE1306291F96D /* UINib+StoryBoardSupport.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UINib+StoryBoardSupport.m"; path = "Dynamic Code Injection/dyci/Classes/Injections/UINib+StoryBoardSupport.m"; sourceTree = "<group>"; };
+		E8021FCA88938DEF0AF877EB /* KZPSynchronizationComponent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KZPSynchronizationComponent.h; path = Pod/Classes/Components/Synchronization/KZPSynchronizationComponent.h; sourceTree = "<group>"; };
+		EE955965AB1FBBE2BA4C0023 /* Pods-KZNodes-dyci-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-KZNodes-dyci-dummy.m"; sourceTree = "<group>"; };
+		EED15FA1D41153F159E640E5 /* KZNNodeWithSlider.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = KZNNodeWithSlider.xib; path = Pod/Assets/KZNNodeWithSlider.xib; sourceTree = "<group>"; };
+		EF515D3EC119094A709A20D6 /* SFFileWatcherDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SFFileWatcherDelegate.h; path = "Dynamic Code Injection/dyci/Classes/FileWatcher/SFFileWatcherDelegate.h"; sourceTree = "<group>"; };
+		F05BFC8A986520CAC3F9DA0C /* Pods-KZNodes-RSSwizzle.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KZNodes-RSSwizzle.xcconfig"; sourceTree = "<group>"; };
+		F3F4BA9FF4771B7A1A6B6BF0 /* Pods-KZNodes-KZPlayground-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-KZNodes-KZPlayground-dummy.m"; sourceTree = "<group>"; };
+		F54184F910D28057208379D3 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		F9CCF0850BD1015C4A87C7A5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		FA179F86D4C062BBFE5197D6 /* Pods-KZNodes-KZPlayground.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KZNodes-KZPlayground.xcconfig"; sourceTree = "<group>"; };
+		FB0A62128383E24B13204BFA /* libPods-KZNodes-dyci.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KZNodes-dyci.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC5FC5B8BA1484C6A32DB876 /* NSObject+DyCInjection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+DyCInjection.h"; path = "Dynamic Code Injection/dyci/Classes/Injections/NSObject+DyCInjection.h"; sourceTree = "<group>"; };
+		FE8DE9AE3A552B8628BD4B6F /* Pods-KZNodes-RSSwizzle-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-KZNodes-RSSwizzle-dummy.m"; sourceTree = "<group>"; };
+		FF47DFCE81D16353A0A504B4 /* UINib+StoryBoardSupport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UINib+StoryBoardSupport.h"; path = "Dynamic Code Injection/dyci/Classes/Injections/UINib+StoryBoardSupport.h"; sourceTree = "<group>"; };
+		FFAB8C0ACA8FF5B0CEBBFBC3 /* Pods-KZNodes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KZNodes.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		062EAD8DE80E1B220D3CEA7C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F75C1CFA85B06C3107B87521 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21AB2B6A378DBAB28EFE55AD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF4A8D3AE79633B93135CEAC /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		80F3E1CAB2F3092CF7FAA371 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				20FC237EB5B5E909F0033F58 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A6C941E60F0C70E9ACBFE034 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4726C7C04E16EFD1A6E6B8E3 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE120C27038E8D7ADD45EE7E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52E947BBD38AAF92EBF4CCB5 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD3E96E4788A289D6DD931A1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD6130D9AC5559B509A4722C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		02B0FF4AB3F4A8EC7C07B8D3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6C388A629587FC43552EA9FF /* KZPlayground */,
+				9F952B1C6560BF5A999D66E9 /* NHBalancedFlowLayout */,
+				761D5CA4386B6A4FD0FCC985 /* RSSwizzle */,
+				298CE697A12F3D74B2E88130 /* dyci */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		046E8E01BD73233A6A7129C1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0C9D0996EA2691021F0F1473 /* libPods-KZNodes.a */,
+				B16BF91B0468D8851DA05549 /* libPods-KZNodes-KZNodes.a */,
+				997AE57001BB5A0BF0D1B4C8 /* libPods-KZNodes-KZPlayground.a */,
+				BF881C769618CA4AB62F455C /* libPods-KZNodes-NHBalancedFlowLayout.a */,
+				411987301F258D5D34784486 /* libPods-KZNodes-RSSwizzle.a */,
+				FB0A62128383E24B13204BFA /* libPods-KZNodes-dyci.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0A2D8AB92696751DDA87C6F6 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				F9CCF0850BD1015C4A87C7A5 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		298CE697A12F3D74B2E88130 /* dyci */ = {
+			isa = PBXGroup;
+			children = (
+				4EA830916DA741B70704E374 /* NSSet+ClassesList.h */,
+				63A3C34909E804621F72D75C /* NSSet+ClassesList.m */,
+				A7EA572B707AFBA6BCADC4EE /* SFDynamicCodeInjection.h */,
+				C2A3D265047E5C538F6176C7 /* SFDynamicCodeInjection.m */,
+				1F74FF4D613CD8D7B422C1A7 /* SFFileWatcher.h */,
+				79481F6EFED37107FC7963A0 /* SFFileWatcher.m */,
+				EF515D3EC119094A709A20D6 /* SFFileWatcherDelegate.h */,
+				4D7E052B2A0AABA82F792AA3 /* SFInjectionsNotificationsCenter.h */,
+				D26935D2BEEF19C9BA3AEBEA /* SFInjectionsNotificationsCenter.m */,
+				FF47DFCE81D16353A0A504B4 /* UINib+StoryBoardSupport.h */,
+				E66581F46E3DE1306291F96D /* UINib+StoryBoardSupport.m */,
+				866418D2D28D0CCA8E0D17D1 /* UIViewController+XIBSupport.h */,
+				4559B94B3D9CFCC010263E04 /* UIViewController+XIBSupport.m */,
+				F858A5DF89E864E9FE54FFAC /* Injections */,
+				2E01CDF2CFC2F6B24B4587BA /* Support Files */,
+			);
+			name = dyci;
+			path = dyci;
+			sourceTree = "<group>";
+		};
+		2E01CDF2CFC2F6B24B4587BA /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				E36B010886A86B2B3B7E0459 /* Pods-KZNodes-dyci.xcconfig */,
+				6060D61A2B7A4325E3A48B92 /* Pods-KZNodes-dyci-Private.xcconfig */,
+				EE955965AB1FBBE2BA4C0023 /* Pods-KZNodes-dyci-dummy.m */,
+				943D6B9FB94B19861D9C65C6 /* Pods-KZNodes-dyci-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-KZNodes-dyci";
+			sourceTree = "<group>";
+		};
+		4082DD9E550AA35BED695455 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				458589F92D04C3AAAD878D69 /* KZNAssets.xcassets */,
+				8978A9E0FD6FC4594493CB87 /* KZNNode.xib */,
+				EED15FA1D41153F159E640E5 /* KZNNodeWithSlider.xib */,
+				0370CA69637DD52F373239AE /* KZNNodeWithText.xib */,
+				0F64EEB17F535D9C92403922 /* KZNSocket_Input.xib */,
+				1C1E7161B3F3DF60AC68378B /* KZNSocket_Output.xib */,
+				7E55947B0291D404BA7106F9 /* KZNWorkspace.xib */,
+				5F9F71768FA929732F06BD15 /* KZNWorkspaceBlockCell.xib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		41E24B4E2BA5ABCD061E934A /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				7D7D4D7AF18C6AD5E303DE71 /* Pods-KZNodes */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		6054F49815AEE7F6288ADCED /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				ACE3D1C42A7B15F89EA48822 /* KZNodes */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		6C388A629587FC43552EA9FF /* KZPlayground */ = {
+			isa = PBXGroup;
+			children = (
+				BDF27D572BDD8F95A8087520 /* KZPActionComponent.h */,
+				002FEA670326AAD9BCEDD9EF /* KZPActionComponent.m */,
+				03CCD21F30409A3187184C75 /* KZPAnimatorComponent.h */,
+				0FED953D5C9E274791E84159 /* KZPAnimatorComponent.m */,
+				D9C7EA344D63BC4CC2F653CE /* KZPComponent.h */,
+				517B7DE829FB9F4254D42AD6 /* KZPImagePickerCollectionViewController.h */,
+				8DC392AED391A2AA0ED65EB6 /* KZPImagePickerCollectionViewController.m */,
+				AE560564FBC2A315D177B6B3 /* KZPImagePickerComponent.h */,
+				57B3AA78EA8310D369F4AB8C /* KZPImagePickerComponent.m */,
+				D55D34423434FAD73CF1C617 /* KZPPlayground.h */,
+				920CF8F3C0003580DB709C56 /* KZPPlayground.m */,
+				DBA828EDD788279C40C8B7A0 /* KZPPlayground+Internal.h */,
+				9E2A1400C5A3CE0C35F8001A /* KZPPlaygroundViewController.h */,
+				2A9727580EA03D10200BD055 /* KZPPlaygroundViewController.m */,
+				C790BAC11203DB297C69EEB9 /* KZPPresenterComponent.h */,
+				3DCCFD893E49376C046AA2C7 /* KZPPresenterComponent.m */,
+				17AB0F5B46E1C526A46DE2DD /* KZPPresenterInfoViewController.h */,
+				A38793B65573C5DA93450DC3 /* KZPPresenterInfoViewController.m */,
+				28A6050F250E0E5B4B279E37 /* KZPSnapshotView.h */,
+				E8021FCA88938DEF0AF877EB /* KZPSynchronizationComponent.h */,
+				062C545903F5A65A3EBE2036 /* KZPSynchronizationComponent.m */,
+				154BB48ED1F0832B6721920B /* KZPTimelineViewController.h */,
+				8558C7B549E6A4AB1A880C96 /* KZPTimelineViewController.m */,
+				7AEB5330444ECF93AF6E18B2 /* KZPValueAdjustComponent.h */,
+				90782D88608E1FB1A02FFAAF /* KZPValueAdjustComponent.m */,
+				99D136D9ADF54354A52ECF7E /* Resources */,
+				76FDA69C96CEFFC205C10224 /* Support Files */,
+			);
+			name = KZPlayground;
+			path = KZPlayground;
+			sourceTree = "<group>";
+		};
+		761D5CA4386B6A4FD0FCC985 /* RSSwizzle */ = {
+			isa = PBXGroup;
+			children = (
+				8864990458DC815D67E60134 /* RSSwizzle.h */,
+				038488D092EA3F2C98EAE254 /* RSSwizzle.m */,
+				9C8A6FC35FF28C01A0FAB70E /* Support Files */,
+			);
+			name = RSSwizzle;
+			path = RSSwizzle;
+			sourceTree = "<group>";
+		};
+		76FDA69C96CEFFC205C10224 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				FA179F86D4C062BBFE5197D6 /* Pods-KZNodes-KZPlayground.xcconfig */,
+				742E8497EA1FEA9B14A288AE /* Pods-KZNodes-KZPlayground-Private.xcconfig */,
+				F3F4BA9FF4771B7A1A6B6BF0 /* Pods-KZNodes-KZPlayground-dummy.m */,
+				23E773805BDC35F6E1733DFF /* Pods-KZNodes-KZPlayground-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-KZNodes-KZPlayground";
+			sourceTree = "<group>";
+		};
+		7D7D4D7AF18C6AD5E303DE71 /* Pods-KZNodes */ = {
+			isa = PBXGroup;
+			children = (
+				83903229EE72EE45BC0D5B57 /* Pods-KZNodes-acknowledgements.markdown */,
+				9683F4EBE6C89A32EADE9CA2 /* Pods-KZNodes-acknowledgements.plist */,
+				D3D3917173396561ECC43862 /* Pods-KZNodes-dummy.m */,
+				E2E0F30B8FC596DA8AA7778B /* Pods-KZNodes-environment.h */,
+				8922A94858F9DA70CAEDCB6E /* Pods-KZNodes-resources.sh */,
+				CBD93FD10CD29D3856D36059 /* Pods-KZNodes.debug.xcconfig */,
+				FFAB8C0ACA8FF5B0CEBBFBC3 /* Pods-KZNodes.release.xcconfig */,
+			);
+			name = "Pods-KZNodes";
+			path = "Target Support Files/Pods-KZNodes";
+			sourceTree = "<group>";
+		};
+		90E01FB9ABC53867E6CE987F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0A2D8AB92696751DDA87C6F6 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		99D136D9ADF54354A52ECF7E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A84981903782238CFFACBFF3 /* KZPPresenterInfoViewController.xib */,
+				2203E4F4AE069092860EA4CB /* Main.storyboard */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		9C8A6FC35FF28C01A0FAB70E /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				F05BFC8A986520CAC3F9DA0C /* Pods-KZNodes-RSSwizzle.xcconfig */,
+				22B8B33D5F3FFCE06F7073A5 /* Pods-KZNodes-RSSwizzle-Private.xcconfig */,
+				FE8DE9AE3A552B8628BD4B6F /* Pods-KZNodes-RSSwizzle-dummy.m */,
+				994843BBE5D0320B51470CF6 /* Pods-KZNodes-RSSwizzle-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-KZNodes-RSSwizzle";
+			sourceTree = "<group>";
+		};
+		9F952B1C6560BF5A999D66E9 /* NHBalancedFlowLayout */ = {
+			isa = PBXGroup;
+			children = (
+				66239B9D20051892E53F7DC9 /* NHBalancedFlowLayout.h */,
+				94D7AF15C08CD9A8263C619C /* NHBalancedFlowLayout.m */,
+				B6F222680B5B126D73FD275A /* NHLinearPartition.h */,
+				B28B2D8D50976C9089FFD0BA /* NHLinearPartition.m */,
+				B0E6CA720D0F8051C4EA6506 /* Support Files */,
+			);
+			name = NHBalancedFlowLayout;
+			path = NHBalancedFlowLayout;
+			sourceTree = "<group>";
+		};
+		ACE3D1C42A7B15F89EA48822 /* KZNodes */ = {
+			isa = PBXGroup;
+			children = (
+				82739B8AAC9E7EDC1488B1BA /* KZNGridView.h */,
+				0114F59E0CA22A374812E8DD /* KZNGridView.m */,
+				04EBD8A696CE03BCDCB00E57 /* KZNNode.h */,
+				A51E883071A82180C7014910 /* KZNNode.m */,
+				577082E7ABEA4B98929155C0 /* KZNNodeType.h */,
+				A3987A8ECCE049BAD6B18C09 /* KZNNodeType.m */,
+				7B62C6C427BD05F56CFBA97A /* KZNNodeWithSlider.h */,
+				25C88B3F5DB95944CD581067 /* KZNNodeWithSlider.m */,
+				D4D75938D9BAFF55FED6EF64 /* KZNNodeWithText.h */,
+				B7CD2F3478C59926035329CE /* KZNNodeWithText.m */,
+				8A875DCBF82E99E15CD3BE75 /* KZNSocket.h */,
+				1CC25BFEC5702BD3209BC2FB /* KZNSocket.m */,
+				A43619160E9DBB74F65E717E /* KZNSocket+Internal.h */,
+				7BACA291582433A4369CF03C /* KZNWorkspace.h */,
+				4B52A7BF2F933348E3CC34D7 /* KZNWorkspace.m */,
+				4082DD9E550AA35BED695455 /* Resources */,
+				B4E7B2B9D95DDF07848AA5D8 /* Support Files */,
+			);
+			name = KZNodes;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		B0E6CA720D0F8051C4EA6506 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				6AF7C89A48F2C58028D39255 /* Pods-KZNodes-NHBalancedFlowLayout.xcconfig */,
+				4BF96E9068859F9E9D65D48F /* Pods-KZNodes-NHBalancedFlowLayout-Private.xcconfig */,
+				0D4E7A3F785AF5E638C6257C /* Pods-KZNodes-NHBalancedFlowLayout-dummy.m */,
+				C6F6531B5A20BE56A4272BF7 /* Pods-KZNodes-NHBalancedFlowLayout-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-KZNodes-NHBalancedFlowLayout";
+			sourceTree = "<group>";
+		};
+		B4E7B2B9D95DDF07848AA5D8 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				240C4652317D805CAA747305 /* Pods-KZNodes-KZNodes.xcconfig */,
+				4BF6FC2848B7AE6823C29F5C /* Pods-KZNodes-KZNodes-Private.xcconfig */,
+				32F888971B9D6062FC6C0961 /* Pods-KZNodes-KZNodes-dummy.m */,
+				69B198C10B058AD6B93BDAC3 /* Pods-KZNodes-KZNodes-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/Pods-KZNodes-KZNodes";
+			sourceTree = "<group>";
+		};
+		DE3686C0F7E4A8B0A0FC4250 = {
+			isa = PBXGroup;
+			children = (
+				F54184F910D28057208379D3 /* Podfile */,
+				6054F49815AEE7F6288ADCED /* Development Pods */,
+				90E01FB9ABC53867E6CE987F /* Frameworks */,
+				02B0FF4AB3F4A8EC7C07B8D3 /* Pods */,
+				046E8E01BD73233A6A7129C1 /* Products */,
+				41E24B4E2BA5ABCD061E934A /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		F858A5DF89E864E9FE54FFAC /* Injections */ = {
+			isa = PBXGroup;
+			children = (
+				FC5FC5B8BA1484C6A32DB876 /* NSObject+DyCInjection.h */,
+				24234B108BCCFC7010850705 /* NSObject+DyCInjection.m */,
+			);
+			name = Injections;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		06C1E4047CFA24A64EC987E5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				61E29DE0785249CD65D736C2 /* RSSwizzle.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		77056BDE07EF2F2D0D9A595B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB7FC2396438C476F0BC0EA8 /* NSObject+DyCInjection.h in Headers */,
+				1EED4065532FC5779E091DCC /* NSSet+ClassesList.h in Headers */,
+				B74EA0E317BA0068295D42FF /* SFDynamicCodeInjection.h in Headers */,
+				C7380CB60A2952DC7CA7379E /* SFFileWatcher.h in Headers */,
+				9D886B61C4E1317D9E2543FF /* SFFileWatcherDelegate.h in Headers */,
+				16FC718ED32E7AA6B639F8DD /* SFInjectionsNotificationsCenter.h in Headers */,
+				705E78F6BDB9E2B2DD4F8D93 /* UINib+StoryBoardSupport.h in Headers */,
+				16BDC05A5BABD27A2207A447 /* UIViewController+XIBSupport.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B677715A6DBF2F3BD30A59CB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8EC5344E9418130FC2412E2F /* NHBalancedFlowLayout.h in Headers */,
+				97F6DD6CE6F3CA40910CF497 /* NHLinearPartition.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCA07211691E58F033CB0578 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0E48CB20A5FCF88EB57E00D /* KZPActionComponent.h in Headers */,
+				D81A271B8475ED5972DEBB4A /* KZPAnimatorComponent.h in Headers */,
+				1192DC39AC49CC50615FAED1 /* KZPComponent.h in Headers */,
+				82B07BF98C0E399B2E115052 /* KZPImagePickerCollectionViewController.h in Headers */,
+				249A89D757EE1A3CA88473D2 /* KZPImagePickerComponent.h in Headers */,
+				5EB78FEE00656030B88431FA /* KZPPlayground+Internal.h in Headers */,
+				F8FE07D5DB402C3A12017C37 /* KZPPlayground.h in Headers */,
+				059A85656BFC4C9714A7CE98 /* KZPPlaygroundViewController.h in Headers */,
+				4BE6034110E2656771D052F1 /* KZPPresenterComponent.h in Headers */,
+				D8B0CF7EB6498FE82394A124 /* KZPPresenterInfoViewController.h in Headers */,
+				D9A178335E881C880CF670EC /* KZPSnapshotView.h in Headers */,
+				2C0A972E6CFF0DA074E400D7 /* KZPSynchronizationComponent.h in Headers */,
+				BD82DB112776756039CB0C33 /* KZPTimelineViewController.h in Headers */,
+				22184E51A1148FCB74780550 /* KZPValueAdjustComponent.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FE2E578F5D154A8A416E73C5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9871426472744877BADE58C4 /* KZNGridView.h in Headers */,
+				8A62792FDDA1F15D04BCE84A /* KZNNode.h in Headers */,
+				0569E0891DC9AA1C5E6B375F /* KZNNodeType.h in Headers */,
+				CE2A3A5279BF0DC6FF84A8CE /* KZNNodeWithSlider.h in Headers */,
+				DBD0EC06FB8E612A44F6E09C /* KZNNodeWithText.h in Headers */,
+				3E545F4ADC2ED0AD96682379 /* KZNSocket+Internal.h in Headers */,
+				DF1EFA4059C2EE530338706F /* KZNSocket.h in Headers */,
+				213FC879F52F254751F76A5F /* KZNWorkspace.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		00D3106D87189556FB6B3DB0 /* Pods-KZNodes-KZPlayground */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9EEDD73ED05563B7CE8F640 /* Build configuration list for PBXNativeTarget "Pods-KZNodes-KZPlayground" */;
+			buildPhases = (
+				B4B9D20DD789F69E34BD18FB /* Sources */,
+				DD3E96E4788A289D6DD931A1 /* Frameworks */,
+				DCA07211691E58F033CB0578 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3591448613B97C8D61DCCAEC /* PBXTargetDependency */,
+				808678EAB85A1411BA50E4FE /* PBXTargetDependency */,
+				464793F0A06946F9ACC56FAC /* PBXTargetDependency */,
+			);
+			name = "Pods-KZNodes-KZPlayground";
+			productName = "Pods-KZNodes-KZPlayground";
+			productReference = 997AE57001BB5A0BF0D1B4C8 /* libPods-KZNodes-KZPlayground.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		30C91FE95AB8A3733A8D2D0F /* Pods-KZNodes */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D296A808FF8F9F411A7EDD2D /* Build configuration list for PBXNativeTarget "Pods-KZNodes" */;
+			buildPhases = (
+				F9A20EB334136DA1D22B1ABB /* Sources */,
+				062EAD8DE80E1B220D3CEA7C /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				249D3AE21F4A2BE9F4564AC9 /* PBXTargetDependency */,
+				DA10D61D565D6F98E21ED924 /* PBXTargetDependency */,
+				BEB49CD7D7EDA0BBDBCEFAB5 /* PBXTargetDependency */,
+				1C6EDAB66CF7EA373AA9F9F5 /* PBXTargetDependency */,
+				B07904FB793A9F98293CCBE6 /* PBXTargetDependency */,
+			);
+			name = "Pods-KZNodes";
+			productName = "Pods-KZNodes";
+			productReference = 0C9D0996EA2691021F0F1473 /* libPods-KZNodes.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		4EEBB18E94DCE21E2BBA23D1 /* Pods-KZNodes-NHBalancedFlowLayout */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E730C4EF602993D62E4E4F85 /* Build configuration list for PBXNativeTarget "Pods-KZNodes-NHBalancedFlowLayout" */;
+			buildPhases = (
+				6DBBD18BE071A95546A37189 /* Sources */,
+				80F3E1CAB2F3092CF7FAA371 /* Frameworks */,
+				B677715A6DBF2F3BD30A59CB /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-KZNodes-NHBalancedFlowLayout";
+			productName = "Pods-KZNodes-NHBalancedFlowLayout";
+			productReference = BF881C769618CA4AB62F455C /* libPods-KZNodes-NHBalancedFlowLayout.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		BE4046D6260D4765F4676DAE /* Pods-KZNodes-KZNodes */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD8CB2F3A5F8B6B1074C1E15 /* Build configuration list for PBXNativeTarget "Pods-KZNodes-KZNodes" */;
+			buildPhases = (
+				7A9CC72BC23A4F2BD9AC502C /* Sources */,
+				21AB2B6A378DBAB28EFE55AD /* Frameworks */,
+				FE2E578F5D154A8A416E73C5 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-KZNodes-KZNodes";
+			productName = "Pods-KZNodes-KZNodes";
+			productReference = B16BF91B0468D8851DA05549 /* libPods-KZNodes-KZNodes.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		CDF2840CE00A1AA831DC1159 /* Pods-KZNodes-dyci */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF315B3C8AECD6FF3D6CCDF6 /* Build configuration list for PBXNativeTarget "Pods-KZNodes-dyci" */;
+			buildPhases = (
+				5FF08A4A1A67361756CF3D33 /* Sources */,
+				A6C941E60F0C70E9ACBFE034 /* Frameworks */,
+				77056BDE07EF2F2D0D9A595B /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-KZNodes-dyci";
+			productName = "Pods-KZNodes-dyci";
+			productReference = FB0A62128383E24B13204BFA /* libPods-KZNodes-dyci.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		F06E5347C96A5DA68CEFB5CB /* Pods-KZNodes-RSSwizzle */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 461D8382C08539C9C39F4347 /* Build configuration list for PBXNativeTarget "Pods-KZNodes-RSSwizzle" */;
+			buildPhases = (
+				0C80621294575AFB3C06F2CA /* Sources */,
+				AE120C27038E8D7ADD45EE7E /* Frameworks */,
+				06C1E4047CFA24A64EC987E5 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-KZNodes-RSSwizzle";
+			productName = "Pods-KZNodes-RSSwizzle";
+			productReference = 411987301F258D5D34784486 /* libPods-KZNodes-RSSwizzle.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		706711B703393CFFADDA0FD4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+			};
+			buildConfigurationList = 69AC010930341D33CC6840BC /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = DE3686C0F7E4A8B0A0FC4250;
+			productRefGroup = 046E8E01BD73233A6A7129C1 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+			);
+			projectRoot = "";
+			targets = (
+				30C91FE95AB8A3733A8D2D0F /* Pods-KZNodes */,
+				BE4046D6260D4765F4676DAE /* Pods-KZNodes-KZNodes */,
+				00D3106D87189556FB6B3DB0 /* Pods-KZNodes-KZPlayground */,
+				4EEBB18E94DCE21E2BBA23D1 /* Pods-KZNodes-NHBalancedFlowLayout */,
+				F06E5347C96A5DA68CEFB5CB /* Pods-KZNodes-RSSwizzle */,
+				CDF2840CE00A1AA831DC1159 /* Pods-KZNodes-dyci */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0C80621294575AFB3C06F2CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD1CFE98EF5CD9E8CA918E33 /* Pods-KZNodes-RSSwizzle-dummy.m in Sources */,
+				8F79C6A1D7F884885B356DF0 /* RSSwizzle.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5FF08A4A1A67361756CF3D33 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB58FE61DCB8608BEB0410B9 /* NSObject+DyCInjection.m in Sources */,
+				1E9067C0E0665706A836F0A7 /* NSSet+ClassesList.m in Sources */,
+				34E861EA4EF46BC6A4C673CF /* Pods-KZNodes-dyci-dummy.m in Sources */,
+				630E9255C13454260E53C9E9 /* SFDynamicCodeInjection.m in Sources */,
+				3A8BF7834B7F33D57D36EE4D /* SFFileWatcher.m in Sources */,
+				F5842F65FB68758537CCB028 /* SFInjectionsNotificationsCenter.m in Sources */,
+				FD2D521BE567F32E89BF7047 /* UINib+StoryBoardSupport.m in Sources */,
+				69AD84EFFA609EE2EC6E2E68 /* UIViewController+XIBSupport.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6DBBD18BE071A95546A37189 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15C294E6AF60011F17DA8B73 /* NHBalancedFlowLayout.m in Sources */,
+				CA45179098DF3EE0D4E58958 /* NHLinearPartition.m in Sources */,
+				36E3C694B14CDE2CA8202440 /* Pods-KZNodes-NHBalancedFlowLayout-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A9CC72BC23A4F2BD9AC502C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2EFC02AA7037D1400288B56 /* KZNGridView.m in Sources */,
+				CD99A7E233BC2380A7E3F9C7 /* KZNNode.m in Sources */,
+				201F6C2ADC6EE6BADDBE5A5A /* KZNNodeType.m in Sources */,
+				640304D34FB96AB7EB529DAE /* KZNNodeWithSlider.m in Sources */,
+				749BE1D5351840604705B693 /* KZNNodeWithText.m in Sources */,
+				F909B5803E4FAEE5AE95E3D4 /* KZNSocket.m in Sources */,
+				09621AB3FC928C6D35FC7CB7 /* KZNWorkspace.m in Sources */,
+				8703575C791EEC9405FE29FF /* Pods-KZNodes-KZNodes-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B4B9D20DD789F69E34BD18FB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E23D6F7FB2DD5A1ED210FD2 /* KZPActionComponent.m in Sources */,
+				64977E07FCAEA21F860F7003 /* KZPAnimatorComponent.m in Sources */,
+				E4EE5331B6AF49D5979846F4 /* KZPImagePickerCollectionViewController.m in Sources */,
+				30A564BB6CAB79EBC8B68541 /* KZPImagePickerComponent.m in Sources */,
+				2CD2AA316F0FC4BB150C7DA6 /* KZPPlayground.m in Sources */,
+				2156E2B83CBCA0DF82ED78EA /* KZPPlaygroundViewController.m in Sources */,
+				44B82F6A15030AA965B88F95 /* KZPPresenterComponent.m in Sources */,
+				13F6318D9190CD12E8A114BC /* KZPPresenterInfoViewController.m in Sources */,
+				80DD8E64A75E01E5E941A132 /* KZPSynchronizationComponent.m in Sources */,
+				D9D15F943A3E5388AC812CE8 /* KZPTimelineViewController.m in Sources */,
+				EDED6DD7B7D693156DD86AAF /* KZPValueAdjustComponent.m in Sources */,
+				E72811B7FED6727CDE1ACEB7 /* Pods-KZNodes-KZPlayground-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F9A20EB334136DA1D22B1ABB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB8F674D2831FCD216C003FD /* Pods-KZNodes-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1C6EDAB66CF7EA373AA9F9F5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F06E5347C96A5DA68CEFB5CB /* Pods-KZNodes-RSSwizzle */;
+			targetProxy = 52CC6ED64F809AA33EDD7214 /* PBXContainerItemProxy */;
+		};
+		249D3AE21F4A2BE9F4564AC9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BE4046D6260D4765F4676DAE /* Pods-KZNodes-KZNodes */;
+			targetProxy = F4EFD6F7D53F341E121ECBB8 /* PBXContainerItemProxy */;
+		};
+		3591448613B97C8D61DCCAEC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4EEBB18E94DCE21E2BBA23D1 /* Pods-KZNodes-NHBalancedFlowLayout */;
+			targetProxy = 4047F4868D441BD9661DAB0D /* PBXContainerItemProxy */;
+		};
+		464793F0A06946F9ACC56FAC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CDF2840CE00A1AA831DC1159 /* Pods-KZNodes-dyci */;
+			targetProxy = C43D181EA377B75E93721534 /* PBXContainerItemProxy */;
+		};
+		808678EAB85A1411BA50E4FE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F06E5347C96A5DA68CEFB5CB /* Pods-KZNodes-RSSwizzle */;
+			targetProxy = 621A1CC0A773AED000B1AE5B /* PBXContainerItemProxy */;
+		};
+		B07904FB793A9F98293CCBE6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CDF2840CE00A1AA831DC1159 /* Pods-KZNodes-dyci */;
+			targetProxy = 21DD86AB7B003EA744A004DD /* PBXContainerItemProxy */;
+		};
+		BEB49CD7D7EDA0BBDBCEFAB5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4EEBB18E94DCE21E2BBA23D1 /* Pods-KZNodes-NHBalancedFlowLayout */;
+			targetProxy = 0F4803E912A385ED436F9F1F /* PBXContainerItemProxy */;
+		};
+		DA10D61D565D6F98E21ED924 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 00D3106D87189556FB6B3DB0 /* Pods-KZNodes-KZPlayground */;
+			targetProxy = 67BA28CD465F568624184172 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		218AEF817FEE7A39994D1293 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FFAB8C0ACA8FF5B0CEBBFBC3 /* Pods-KZNodes.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				OTHER_CFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2B92069F0771B9ABDAC13583 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 742E8497EA1FEA9B14A288AE /* Pods-KZNodes-KZPlayground-Private.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-KZNodes-KZPlayground/Pods-KZNodes-KZPlayground-prefix.pch";
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				OTHER_CFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5D8EC0EC28AD3F6464BD7B99 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4BF96E9068859F9E9D65D48F /* Pods-KZNodes-NHBalancedFlowLayout-Private.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-KZNodes-NHBalancedFlowLayout/Pods-KZNodes-NHBalancedFlowLayout-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		73BCCE338AD5B4BEE46DE683 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"RELEASE=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				STRIP_INSTALLED_PRODUCT = NO;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		93F6C8A8643A0B54DDF97FDF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 742E8497EA1FEA9B14A288AE /* Pods-KZNodes-KZPlayground-Private.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-KZNodes-KZPlayground/Pods-KZNodes-KZPlayground-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		AF5E3FA731A8200E94A00C09 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 22B8B33D5F3FFCE06F7073A5 /* Pods-KZNodes-RSSwizzle-Private.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-KZNodes-RSSwizzle/Pods-KZNodes-RSSwizzle-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		B1DE3CFB81ADC5CF10B30A53 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6060D61A2B7A4325E3A48B92 /* Pods-KZNodes-dyci-Private.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-KZNodes-dyci/Pods-KZNodes-dyci-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		B96ED1F083D8A09D2833E953 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 22B8B33D5F3FFCE06F7073A5 /* Pods-KZNodes-RSSwizzle-Private.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-KZNodes-RSSwizzle/Pods-KZNodes-RSSwizzle-prefix.pch";
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				OTHER_CFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BED313C146187DB7CBF5015F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4BF96E9068859F9E9D65D48F /* Pods-KZNodes-NHBalancedFlowLayout-Private.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-KZNodes-NHBalancedFlowLayout/Pods-KZNodes-NHBalancedFlowLayout-prefix.pch";
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				OTHER_CFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C6ACB043C4EBEE1073770AD0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4BF6FC2848B7AE6823C29F5C /* Pods-KZNodes-KZNodes-Private.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-KZNodes-KZNodes/Pods-KZNodes-KZNodes-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		C94B51226E408187FD0DF1F1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+			};
+			name = Debug;
+		};
+		E1DAC57C2A51A89E1E0D3B44 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4BF6FC2848B7AE6823C29F5C /* Pods-KZNodes-KZNodes-Private.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-KZNodes-KZNodes/Pods-KZNodes-KZNodes-prefix.pch";
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				OTHER_CFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E9E8AA489B881120F08F7B98 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CBD93FD10CD29D3856D36059 /* Pods-KZNodes.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		EBC96B3D1E4F9675E4EF7A48 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6060D61A2B7A4325E3A48B92 /* Pods-KZNodes-dyci-Private.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-KZNodes-dyci/Pods-KZNodes-dyci-prefix.pch";
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				OTHER_CFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"$(inherited)",
+				);
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		461D8382C08539C9C39F4347 /* Build configuration list for PBXNativeTarget "Pods-KZNodes-RSSwizzle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF5E3FA731A8200E94A00C09 /* Debug */,
+				B96ED1F083D8A09D2833E953 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		69AC010930341D33CC6840BC /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C94B51226E408187FD0DF1F1 /* Debug */,
+				73BCCE338AD5B4BEE46DE683 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A9EEDD73ED05563B7CE8F640 /* Build configuration list for PBXNativeTarget "Pods-KZNodes-KZPlayground" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93F6C8A8643A0B54DDF97FDF /* Debug */,
+				2B92069F0771B9ABDAC13583 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D296A808FF8F9F411A7EDD2D /* Build configuration list for PBXNativeTarget "Pods-KZNodes" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E9E8AA489B881120F08F7B98 /* Debug */,
+				218AEF817FEE7A39994D1293 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DD8CB2F3A5F8B6B1074C1E15 /* Build configuration list for PBXNativeTarget "Pods-KZNodes-KZNodes" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C6ACB043C4EBEE1073770AD0 /* Debug */,
+				E1DAC57C2A51A89E1E0D3B44 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E730C4EF602993D62E4E4F85 /* Build configuration list for PBXNativeTarget "Pods-KZNodes-NHBalancedFlowLayout" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5D8EC0EC28AD3F6464BD7B99 /* Debug */,
+				BED313C146187DB7CBF5015F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EF315B3C8AECD6FF3D6CCDF6 /* Build configuration list for PBXNativeTarget "Pods-KZNodes-dyci" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B1DE3CFB81ADC5CF10B30A53 /* Debug */,
+				EBC96B3D1E4F9675E4EF7A48 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 706711B703393CFFADDA0FD4 /* Project object */;
+}

@@ -1,0 +1,6 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'KZNodes', :exclusive => true do
+  pod "KZNodes", :path => "../"
+  pod "KZPlayground"
+end

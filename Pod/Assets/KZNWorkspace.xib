@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14A388a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="KZNWorkspace">
+            <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="da8-58-qMt" customClass="KZNGridView">
+                    <rect key="frame" x="0.0" y="0.0" width="704" height="768"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AlC-tz-Kfc">
+                            <rect key="frame" x="0.0" y="0.0" width="704" height="768"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" red="0.062233127653598785" green="0.066827565431594849" blue="0.069257341325283051" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="AlC-tz-Kfc" secondAttribute="trailing" id="YJQ-Zm-Kvc"/>
+                        <constraint firstAttribute="bottom" secondItem="AlC-tz-Kfc" secondAttribute="bottom" id="gMy-6f-K7w"/>
+                        <constraint firstItem="AlC-tz-Kfc" firstAttribute="top" secondItem="da8-58-qMt" secondAttribute="top" id="rqP-zd-T36"/>
+                        <constraint firstItem="AlC-tz-Kfc" firstAttribute="leading" secondItem="da8-58-qMt" secondAttribute="leading" id="rtj-uW-9Lw"/>
+                    </constraints>
+                    <connections>
+                        <outlet property="zoomableView" destination="AlC-tz-Kfc" id="xyV-bX-gh1"/>
+                    </connections>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yvL-dH-UfU">
+                    <rect key="frame" x="704" y="0.0" width="320" height="320"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="320" id="8I9-LQ-rMA"/>
+                        <constraint firstAttribute="width" constant="320" id="FDe-r0-N2M"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="aFt-EB-BLt">
+                    <rect key="frame" x="704" y="320" width="320" height="448"/>
+                    <color key="backgroundColor" red="0.062442287802696228" green="0.066938579082489014" blue="0.06931796669960022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="tintColor" red="0.062442287802696228" green="0.066938579082489014" blue="0.06931796669960022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="sectionIndexBackgroundColor" red="0.062442287802696228" green="0.066938579082489014" blue="0.06931796669960022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <connections>
+                        <outlet property="dataSource" destination="iN0-l3-epB" id="Ah0-Fh-Y58"/>
+                        <outlet property="delegate" destination="iN0-l3-epB" id="v7t-89-XAt"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="yvL-dH-UfU" firstAttribute="leading" secondItem="da8-58-qMt" secondAttribute="trailing" id="1Km-eb-3Y2"/>
+                <constraint firstItem="da8-58-qMt" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="2Sz-9J-owK"/>
+                <constraint firstAttribute="bottom" secondItem="da8-58-qMt" secondAttribute="bottom" id="Bbr-7C-oc6"/>
+                <constraint firstItem="aFt-EB-BLt" firstAttribute="top" secondItem="yvL-dH-UfU" secondAttribute="bottom" id="EDo-N2-hKt"/>
+                <constraint firstItem="yvL-dH-UfU" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="MWt-GM-W6c"/>
+                <constraint firstAttribute="trailing" secondItem="aFt-EB-BLt" secondAttribute="trailing" id="NRf-js-kRe"/>
+                <constraint firstItem="da8-58-qMt" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ROU-rI-ppy"/>
+                <constraint firstItem="da8-58-qMt" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="UFt-ZO-Jvn"/>
+                <constraint firstAttribute="bottom" secondItem="aFt-EB-BLt" secondAttribute="bottom" id="e4N-oc-dbl"/>
+                <constraint firstItem="yvL-dH-UfU" firstAttribute="width" secondItem="aFt-EB-BLt" secondAttribute="width" id="p6D-CZ-1A9"/>
+                <constraint firstAttribute="trailing" secondItem="yvL-dH-UfU" secondAttribute="trailing" id="tUt-hx-wFl"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="2Sz-9J-owK"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="gridView" destination="da8-58-qMt" id="S5A-gs-S0E"/>
+                <outlet property="previewView" destination="yvL-dH-UfU" id="IkR-GT-MNO"/>
+                <outlet property="tableView" destination="aFt-EB-BLt" id="Cyk-Qz-22f"/>
+            </connections>
+        </view>
+    </objects>
+</document>
