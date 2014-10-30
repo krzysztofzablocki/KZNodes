@@ -1,4 +1,4 @@
-# KZNodes - Node based visual editors like Origami made easy.
+# KZNodes - editors like Origami made easy.
 
 [![Version](https://img.shields.io/cocoapods/v/KZNodes.svg?style=flat)](http://cocoadocs.org/docsets/KZNodes)
 [![License](https://img.shields.io/cocoapods/l/KZNodes.svg?style=flat)](http://cocoadocs.org/docsets/KZNodes)
