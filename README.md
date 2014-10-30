@@ -9,10 +9,6 @@
 [![](/Screenshots/transforms.gif?raw=true)](https://vimeo.com/110467626)
 [![](/Screenshots/coreimage.gif?raw=true)](https://vimeo.com/110467626)
 
-[![Version](https://img.shields.io/cocoapods/v/KZPlayground.svg?style=flat)](http://cocoadocs.org/docsets/KZPlayground)
-[![License](https://img.shields.io/cocoapods/l/KZPlayground.svg?style=flat)](http://cocoadocs.org/docsets/KZPlayground)
-[![Platform](https://img.shields.io/cocoapods/p/KZPlayground.svg?style=flat)](http://cocoadocs.org/docsets/KZPlayground)
-
 Have you ever wondered how you could create an editor like Origami?
 How about creating a subset of Origami in less than 100 lines of code?
 
