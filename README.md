@@ -94,6 +94,9 @@ If you'd like to get specific features [I'm available for iOS consulting](http:/
 
 ## Changelog
  
+### 0.1.1
+- much nicer bezier curves, based on [the-graph](https://github.com/the-grid/the-graph/)
+
 ### 0.1.0
 - initial release
  
