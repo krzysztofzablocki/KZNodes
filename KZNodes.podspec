@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "KZNodes"
-  s.version          = "0.1.0"
+  s.version          = "0.1.1"
   s.summary          = "Framework for building visual workflow editors eg. Origami."
   s.description      = <<-DESC
                       Have you ever wondered how you could create an editor like Origami?

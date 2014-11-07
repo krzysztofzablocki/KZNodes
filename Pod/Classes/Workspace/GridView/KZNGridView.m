@@ -46,6 +46,7 @@ static const void *kSocketConnectionLayerKey = &kSocketConnectionLayerKey;
     CAShapeLayer *layer = [CAShapeLayer layer];
     self.overlay = layer;
     [self setupLinePropertiesForLayer:_overlay];
+    _overlay.zPosition = 2;
     [self.zoomableView.layer addSublayer:_overlay];
   }
 
@@ -55,7 +56,7 @@ static const void *kSocketConnectionLayerKey = &kSocketConnectionLayerKey;
 - (void)setupLinePropertiesForLayer:(CAShapeLayer *)connectionLayer
 {
   connectionLayer.frame = self.bounds;
-  connectionLayer.zPosition = 2;
+  connectionLayer.zPosition = -1;
   connectionLayer.lineWidth = 2;
   connectionLayer.fillColor = UIColor.clearColor.CGColor;
   connectionLayer.strokeColor = [UIColor colorWithRed:0.49f green:0.52f blue:0.56f alpha:1.0f].CGColor;
@@ -285,41 +286,42 @@ static const void *kSocketConnectionLayerKey = &kSocketConnectionLayerKey;
 
 - (CGPathRef)pathFromPoint:(CGPoint)startPoint toPoint:(CGPoint)endPoint
 {
-  //! http://stackoverflow.com/questions/8024736/how-to-compute-the-control-points-for-a-smooth-path-given-a-set-of-points
-  CGMutablePathRef curvedPath = CGPathCreateMutable();
-  const int TOTAL_POINTS = 3;
-  int horizontalWiggle = 20;
+  const CGFloat nodeSize = 72;
 
-  int stepChangeX = (int)((endPoint.x - startPoint.x) / TOTAL_POINTS);
-  int stepChangeY = (int)((endPoint.y - startPoint.y) / TOTAL_POINTS);
+  CGFloat sourceX = startPoint.x;
+  CGFloat sourceY = startPoint.y;
+  CGFloat targetX = endPoint.x;
+  CGFloat targetY = endPoint.y;
 
-  for (int i = 0; i < TOTAL_POINTS; i++) {
-    int startX = (int)(startPoint.x + i * stepChangeX);
-    int startY = (int)(startPoint.y + i * stepChangeY);
-
-    int endX = (int)(startPoint.x + (i + 1) * stepChangeX);
-    int endY = (int)(startPoint.y + (i + 1) * stepChangeY);
-
-    int cpX1 = (int)(startPoint.x + (i + 0.25) * stepChangeX);
-    if ((i + 1) % 2) {
-      cpX1 -= horizontalWiggle;
+  // Organic / curved edge
+  CGFloat c1X, c1Y, c2X, c2Y;
+  if (targetX - 5 < sourceX) {
+    CGFloat curveFactor = (sourceX - targetX) * nodeSize / 200;
+    if (fabsf(targetY - sourceY) < nodeSize / 2) {
+      // Loopback
+      c1X = sourceX + curveFactor;
+      c1Y = sourceY - curveFactor;
+      c2X = targetX - curveFactor;
+      c2Y = targetY - curveFactor;
     } else {
-      cpX1 += horizontalWiggle;
+      // Stick out some
+      c1X = sourceX + curveFactor;
+      c1Y = sourceY + (targetY > sourceY ? curveFactor : -curveFactor);
+      c2X = targetX - curveFactor;
+      c2Y = targetY + (targetY > sourceY ? -curveFactor : curveFactor);
     }
-    int cpY1 = (int)(startPoint.y + (i + 0.25) * stepChangeY);
-
-    int cpX2 = (int)(startPoint.x + (i + 0.75) * stepChangeX);
-    if ((i + 1) % 2) {
-      cpX2 -= horizontalWiggle;
-    } else {
-      cpX2 += horizontalWiggle;
-    }
-    int cpY2 = (int)(startPoint.y + (i + 0.75) * stepChangeY);
-
-    CGPathMoveToPoint(curvedPath, NULL, startX, startY);
-    CGPathAddCurveToPoint(curvedPath, NULL, cpX1, cpY1, cpX2, cpY2, endX, endY);
+  } else {
+    // Controls halfway between
+    c1X = sourceX + (targetX - sourceX) / 2;
+    c1Y = sourceY;
+    c2X = c1X;
+    c2Y = targetY;
   }
 
+
+  CGMutablePathRef curvedPath = CGPathCreateMutable();
+  CGPathMoveToPoint(curvedPath, NULL, startPoint.x, startPoint.y);
+  CGPathAddCurveToPoint(curvedPath, NULL, c1X, c1Y, c2X, c2Y, endPoint.x, endPoint.y);
   return curvedPath;
 }
 
