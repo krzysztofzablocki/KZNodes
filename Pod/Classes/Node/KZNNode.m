@@ -27,7 +27,7 @@
     return [UINib nibWithNibName:NSStringFromClass(self.class) bundle:[NSBundle mainBundle]];
   }
 
-  if ([[NSBundle mainBundle] pathForResource:NSStringFromClass(self.class) ofType:@"nib"]) {
+  if ([[NSBundle bundleForClass:[KZNNode class]] pathForResource:NSStringFromClass(self.class) ofType:@"nib"]) {
     return [UINib nibWithNibName:NSStringFromClass(self.class) bundle:[NSBundle bundleForClass:self.class]];
   }
 
