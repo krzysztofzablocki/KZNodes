@@ -152,7 +152,7 @@
     return NO;
   }
 
-  return CGRectContainsPoint(self.bounds, point);
+  return CGRectContainsPoint(CGRectMake(self.bounds.origin.x, self.bounds.origin.y, self.bounds.size.width, 39), point);
 }
 
 - (NSDictionary *)evaluateWithTick:(NSUInteger)tick withForwardPropagation:(BOOL)forwardPropagation
