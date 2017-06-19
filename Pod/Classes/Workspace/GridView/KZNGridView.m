@@ -14,6 +14,10 @@
 
 static const void *kSocketConnectionLayerKey = &kSocketConnectionLayerKey;
 
+struct ControlPoints {
+    CGFloat c1X, c1Y, c2X, c2Y;
+};
+
 @interface KZNGridView ()
 @property(nonatomic, weak) CAShapeLayer *overlay;
 @property(nonatomic) CGPoint draggedObjectCenterOffset;
@@ -85,7 +89,13 @@ static const void *kSocketConnectionLayerKey = &kSocketConnectionLayerKey;
 {
   CGPoint startPoint = [connectionLayer convertPoint:[outputSocket socketCenter] fromLayer:outputSocket.layer];
   CGPoint targetPoint = [connectionLayer convertPoint:[inputSocket socketCenter] fromLayer:inputSocket.layer];
-  connectionLayer.path = [self pathFromPoint:startPoint toPoint:targetPoint];
+  struct ControlPoints control = [self controlPointsForSplineFromPoint:startPoint toPoint:targetPoint];
+
+  CGMutablePathRef curvedPath = CGPathCreateMutable();
+  CGPathMoveToPoint(curvedPath, NULL, startPoint.x, startPoint.y);
+  CGPathAddCurveToPoint(curvedPath, NULL, control.c1X, control.c1Y, control.c2X, control.c2Y, targetPoint.x, targetPoint.y);
+  connectionLayer.path = curvedPath;
+  CGPathRelease(curvedPath);
 }
 
 
@@ -123,7 +133,7 @@ static const void *kSocketConnectionLayerKey = &kSocketConnectionLayerKey;
   CGFloat columnWidth = width / (numberOfColumns + 1.0f);
 
   NSInteger firstColumn = (NSInteger)(-offset.x / columnWidth);
-  for (int i = firstColumn; i <= firstColumn + numberOfColumns + 1; i++) {
+  for (NSInteger i = firstColumn; i <= firstColumn + numberOfColumns + 1; i++) {
     CGPoint startPoint;
     CGPoint endPoint;
 
@@ -144,7 +154,7 @@ static const void *kSocketConnectionLayerKey = &kSocketConnectionLayerKey;
 
   CGFloat rowHeight = height / (numberOfRows + 1.0f);
   NSInteger firstRow = (NSInteger)(-offset.y / rowHeight);
-  for (int j = firstRow; j <= firstRow + numberOfRows; j++) {
+  for (NSInteger j = firstRow; j <= firstRow + numberOfRows; j++) {
     CGPoint startPoint;
     CGPoint endPoint;
 
@@ -192,7 +202,14 @@ static const void *kSocketConnectionLayerKey = &kSocketConnectionLayerKey;
       if (self.draggedObject) {
         if ([self.draggedObject isKindOfClass:KZNSocket.class]) {
           CGPoint socketCenter = [self.zoomableView convertPoint:[(KZNSocket *)self.draggedObject socketCenter] fromView:self.draggedObject];
-          self.overlay.path = [self pathFromPoint:socketCenter toPoint:[self convertPoint:point fromView:panGestureRecognizer.view]];
+          CGPoint target = [self convertPoint:point fromView:panGestureRecognizer.view];
+          struct ControlPoints control = [self controlPointsForSplineFromPoint:socketCenter toPoint:target];
+          CGMutablePathRef curvedPath = CGPathCreateMutable();
+          CGPathMoveToPoint(curvedPath, NULL, socketCenter.x, socketCenter.y);
+          CGPathAddCurveToPoint(curvedPath, NULL, control.c1X, control.c1Y, control.c2X, control.c2Y, target.x, target.y);
+          self.overlay.path = curvedPath;
+
+          CGPathRelease(curvedPath);
           [self updateConnections];
           return;
         }
@@ -283,46 +300,39 @@ static const void *kSocketConnectionLayerKey = &kSocketConnectionLayerKey;
   }];
 }
 
+- (struct ControlPoints)controlPointsForSplineFromPoint:(CGPoint)startPoint toPoint:(CGPoint)endPoint{
+    const CGFloat nodeSize = 72;
+    CGFloat sourceX = startPoint.x;
+    CGFloat sourceY = startPoint.y;
+    CGFloat targetX = endPoint.x;
+    CGFloat targetY = endPoint.y;
 
-- (CGPathRef)pathFromPoint:(CGPoint)startPoint toPoint:(CGPoint)endPoint
-{
-  const CGFloat nodeSize = 72;
+    // Organic / curved edge
 
-  CGFloat sourceX = startPoint.x;
-  CGFloat sourceY = startPoint.y;
-  CGFloat targetX = endPoint.x;
-  CGFloat targetY = endPoint.y;
-
-  // Organic / curved edge
-  CGFloat c1X, c1Y, c2X, c2Y;
-  if (targetX - 5 < sourceX) {
-    CGFloat curveFactor = (sourceX - targetX) * nodeSize / 200;
-    if (fabsf(targetY - sourceY) < nodeSize / 2) {
-      // Loopback
-      c1X = sourceX + curveFactor;
-      c1Y = sourceY - curveFactor;
-      c2X = targetX - curveFactor;
-      c2Y = targetY - curveFactor;
+    struct ControlPoints points;
+    if (targetX - 5 < sourceX) {
+        CGFloat curveFactor = (sourceX - targetX) * nodeSize / 200;
+        if (fabs(targetY - sourceY) < nodeSize / 2) {
+            // Loopback
+            points.c1X = sourceX + curveFactor;
+            points.c1Y = sourceY - curveFactor;
+            points.c2X = targetX - curveFactor;
+            points.c2Y = targetY - curveFactor;
+        } else {
+            // Stick out some
+            points.c1X = sourceX + curveFactor;
+            points.c1Y = sourceY + (targetY > sourceY ? curveFactor : -curveFactor);
+            points.c2X = targetX - curveFactor;
+            points.c2Y = targetY + (targetY > sourceY ? -curveFactor : curveFactor);
+        }
     } else {
-      // Stick out some
-      c1X = sourceX + curveFactor;
-      c1Y = sourceY + (targetY > sourceY ? curveFactor : -curveFactor);
-      c2X = targetX - curveFactor;
-      c2Y = targetY + (targetY > sourceY ? -curveFactor : curveFactor);
+        // Controls halfway between
+        points.c1X = sourceX + (targetX - sourceX) / 2;
+        points.c1Y = sourceY;
+        points.c2X = points.c1X;
+        points.c2Y = targetY;
     }
-  } else {
-    // Controls halfway between
-    c1X = sourceX + (targetX - sourceX) / 2;
-    c1Y = sourceY;
-    c2X = c1X;
-    c2Y = targetY;
-  }
-
-
-  CGMutablePathRef curvedPath = CGPathCreateMutable();
-  CGPathMoveToPoint(curvedPath, NULL, startPoint.x, startPoint.y);
-  CGPathAddCurveToPoint(curvedPath, NULL, c1X, c1Y, c2X, c2Y, endPoint.x, endPoint.y);
-  return curvedPath;
+    return points;
 }
 
 - (void)addNode:(KZNNode *)node
