@@ -100,8 +100,8 @@
 			children = (
 				CD2C993D1A0288CD00F140ED /* avatar.jpg */,
 				CD2C993B1A027F0900F140ED /* LocalAssets.xcassets */,
-				CD2C99381A02797000F140ED /* KZPlaygroundExample.m */,
 				CD2C99391A02797000F140ED /* KZPlaygroundExample.h */,
+				CD2C99381A02797000F140ED /* KZPlaygroundExample.m */,
 				6003F59C195388D20070C39A /* KZNAppDelegate.h */,
 				6003F59D195388D20070C39A /* KZNAppDelegate.m */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
@@ -173,6 +173,11 @@
 				CLASSPREFIX = KZN;
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Krzysztof Zablocki";
+				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = 2CQFYEE7KC;
+					};
+				};
 			};
 			buildConfigurationList = 6003F585195388D10070C39A /* Build configuration list for PBXProject "KZNodes" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -296,7 +301,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -329,7 +334,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -342,6 +347,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = 2CQFYEE7KC;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KZNodes/KZNodes-Prefix.pch";
 				INFOPLIST_FILE = "KZNodes/KZNodes-Info.plist";
@@ -357,6 +363,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = 2CQFYEE7KC;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KZNodes/KZNodes-Prefix.pch";
 				INFOPLIST_FILE = "KZNodes/KZNodes-Info.plist";

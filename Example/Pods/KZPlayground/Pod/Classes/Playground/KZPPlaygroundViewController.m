@@ -9,12 +9,15 @@
 #import <KZPlayground/KZPPlaygroundViewController.h>
 #import "KZPTimelineViewController.h"
 #import "KZPPlayground+Internal.h"
+#import "KZNWorkspace.h"
 
 @interface KZPPlaygroundViewController ()
 @property(weak, nonatomic) IBOutlet UIView *timelineContainerView;
 @property(weak, nonatomic) IBOutlet UIView *worksheetContainerView;
 @property(strong, nonatomic) KZPPlayground *currentPlayground;
 @property(unsafe_unretained, nonatomic) IBOutlet NSLayoutConstraint *leadingTimelineConstraint;
+
+@property (nonatomic, assign) KZNWorkspace *workspace;
 @end
 
 @implementation KZPPlaygroundViewController
@@ -61,6 +64,8 @@
     self.currentPlayground = [self createActivePlayground];
     [self.timelineViewController playgroundSetupCompleted];
     [self executePlayground];
+      
+      [self addStoregeButtons];
   });
 }
 
@@ -101,7 +106,7 @@
 - (void)executePlayground
 {
   [self reset];
-  [self.currentPlayground run];
+  _workspace = [self.currentPlayground run];
   [self playgroundDidRun];
 }
 
@@ -158,4 +163,37 @@
 
   return nil;
 }
+
+#pragma mark - Actions
+
+- (void) addStoregeButtons {
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button setTitle:@"Save" forState:UIControlStateNormal];
+    [button addTarget:self
+               action:@selector(saveNodesComposition)
+     forControlEvents:UIControlEventTouchUpInside];
+    button.frame = CGRectMake(20.0, 20.0, 160.0, 40.0);
+    [button setBackgroundColor:[UIColor redColor]];
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.view addSubview:button];
+    
+    UIButton *button2 = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button2 setTitle:@"Restore" forState:UIControlStateNormal];
+    [button2 addTarget:self
+               action:@selector(restoreNodesComposition)
+     forControlEvents:UIControlEventTouchUpInside];
+    button2.frame = CGRectMake(200.0, 20.0, 160.0, 40.0);
+    [button2 setBackgroundColor:[UIColor redColor]];
+    [button2 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.view addSubview:button2];
+}
+
+- (void)saveNodesComposition {
+    [_workspace saveNodesComposition];
+}
+
+- (void)restoreNodesComposition {
+    [_workspace restoreNodesComposition];
+}
+
 @end

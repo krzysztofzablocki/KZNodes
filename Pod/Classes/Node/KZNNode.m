@@ -189,4 +189,30 @@
 {
   [self.workspace removeNode:self];
 }
+
+# pragma mark - Encode/decode Objects
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [super encodeWithCoder:aCoder];
+    [aCoder encodeObject:self.containerView forKey:@"containerView"];
+    [aCoder encodeObject:self.type forKey:@"type"];
+    [aCoder encodeObject:self.inputSockets forKey:@"inputSockets"];
+    [aCoder encodeObject:self.outputSockets forKey:@"outputSockets"];
+    [aCoder encodeInteger:self.evaluationTick forKey:@"evaluationTick"];
+    [aCoder encodeInteger:self.verticalSpacing forKey:@"verticalSpacing"];
+    [aCoder encodeInteger:self.socketHorizontalSpacing forKey:@"socketHorizontalSpacing"];
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        _type = [aDecoder decodeObjectForKey:@"type"];
+        _inputSockets = [aDecoder decodeObjectForKey:@"inputSockets"];
+        _outputSockets = [aDecoder decodeObjectForKey:@"outputSockets"];
+        _evaluationTick = [aDecoder decodeIntegerForKey:@"evaluationTick"];
+        self.verticalSpacing = [aDecoder decodeIntegerForKey:@"verticalSpacing"];
+        _socketHorizontalSpacing = [aDecoder decodeIntegerForKey:@"socketHorizontalSpacing"];
+    }
+    return self;
+}
 @end

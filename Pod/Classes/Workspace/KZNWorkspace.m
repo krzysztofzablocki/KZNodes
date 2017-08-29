@@ -190,4 +190,17 @@
   [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+#pragma mark - Storage
+
+- (void)saveNodesComposition {
+    NSData *arrayDataToStore = [NSKeyedArchiver archivedDataWithRootObject:self.nodes];
+    [[NSUserDefaults standardUserDefaults] setObject:arrayDataToStore forKey:@"nodesSavedArray"];
+    NSArray *oldArray = [NSKeyedUnarchiver unarchiveObjectWithData:arrayDataToStore];
+    NSLog(@"STORED %li objects", oldArray.count);
+}
+
+- (void)restoreNodesComposition {
+    
+}
+
 @end

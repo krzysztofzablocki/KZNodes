@@ -24,4 +24,6 @@
 - (void)breakConnectionFromSocket:(KZNSocket *)outputSocket toSocket:(KZNSocket *)inputSocket;
 
 - (void)evaluate;
+- (void)saveNodesComposition;
+- (void)restoreNodesComposition;
 @end

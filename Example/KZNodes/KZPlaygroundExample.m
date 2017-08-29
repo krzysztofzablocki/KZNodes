@@ -22,17 +22,16 @@
 
 }
 
-- (void)run
+- (KZNWorkspace*)run
 {
   self.playgroundViewController.timelineHidden = YES;
   [[KZNNodeType nodeTypes] removeAllObjects];
 
   //[self transformationWorkspace];
-  [self coreImageWorkspace];
-
+  return [self coreImageWorkspace];
 }
 
-- (void)coreImageWorkspace
+- (KZNWorkspace*)coreImageWorkspace
 {
   [@[ @"CIPhotoEffectChrome",
     @"CIPhotoEffectFade",
@@ -96,9 +95,10 @@
 
   [self.worksheetView addSubview:workspace];
   [workspace.previewView addSubview:imageView];
+    return workspace;
 }
 
-- (void)transformationWorkspace
+- (KZNWorkspace*)transformationWorkspace
 {
   [KZNNodeType registerType:@"slider" withClass:KZNNodeWithSlider.class inputs:@{ } outputs:@{ @"Output" : NSNumber.class } processingBlock:^(KZNNodeWithSlider *node, NSDictionary *inputs, NSMutableDictionary *outputs) {
     outputs[@"Output"] = @(node.slider.value);
@@ -140,6 +140,7 @@
   }];
 
   [self.worksheetView addSubview:workspace];
+    return workspace;
 }
 
 - (SCNNode *)addSceneKitToView:(UIView *)view
