@@ -252,6 +252,8 @@
   
   // Restore socket links
   [self createSocketLinksFrom:savedArray];
+  
+  [_gridView updateConnections];
 }
 
 - (void)createNodesFrom:(NSArray*)nodesArray
@@ -292,8 +294,10 @@
       KZNSocket *inputSocket = [self inputSocketWithName:socketName fromNode:self.nodes[currentNodeIndex]];
       KZNSocket *outputSocket = [self outputSocketWithName:targetSocketName fromNode:self.nodes[targetNodeIndex]];
       
+      [_gridView prepareConnectionLayerForSocket:inputSocket];
       [outputSocket addConnectionToSocket:inputSocket];
       [self evaluate];
+      [_gridView updateConnections];
     }
   }
 }
