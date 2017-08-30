@@ -147,47 +147,4 @@
   return s;
 }
 
-#pragma mark - Encode/decode Obbject
-
-- (void)encodeWithCoder:(NSCoder *)aCoder {
-    [super encodeWithCoder:aCoder];
-
-    [aCoder encodeObject:self.socketButton forKey:@"socketButton"];
-    [aCoder encodeObject:self.label forKey:@"label"];
-    [aCoder encodeObject:self.containerView forKey:@"containerView"];
-
-    [aCoder encodeObject:self.name forKey:@"name"];
-    [aCoder encodeObject:self.type forKey:@"type"];
-    [aCoder encodeInteger:self.socketType forKey:@"socketType"];
-    [aCoder encodeObject:self.color forKey:@"color"];
-    [aCoder encodeObject:self.shapeLayer forKey:@"shapeLayer"];
-    [aCoder encodeObject:self.parent forKey:@"parent"];
-    [aCoder encodeObject:self.connections forKey:@"connections"];
-
-    if (self.connections.count == 1) {
-        [aCoder encodeObject:self.sourceSocket forKey:@"sourceSocket"];
-    } else {
-        [aCoder encodeObject:nil forKey:@"sourceSocket"];
-    }
-}
-
-- (id)initWithCoder:(NSCoder *)aDecoder {
-    self = [super initWithCoder:aDecoder];
-    if (self) {
-        _socketButton = [aDecoder decodeObjectForKey:@"socketButton"];
-        _label = [aDecoder decodeObjectForKey:@"socketButton"];
-        _containerView = [aDecoder decodeObjectForKey:@"socketButton"];
-
-        _name = [aDecoder decodeObjectForKey:@"socketButton"];
-        _type = [aDecoder decodeObjectForKey:@"socketButton"];
-        _socketType = [aDecoder decodeIntegerForKey:@"socketButton"];
-        _color = [aDecoder decodeObjectForKey:@"socketButton"];
-        _shapeLayer = [aDecoder decodeObjectForKey:@"socketButton"];
-        _parent = [aDecoder decodeObjectForKey:@"socketButton"];
-        _connections = [aDecoder decodeObjectForKey:@"socketButton"];
-        self.sourceSocket = [aDecoder decodeObjectForKey:@"socketButton"];
-    }
-    return self;
-}
-
 @end

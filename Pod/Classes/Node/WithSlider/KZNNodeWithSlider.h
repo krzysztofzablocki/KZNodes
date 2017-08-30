@@ -13,5 +13,5 @@
 
 @interface KZNNodeWithSlider : KZNNode
 @property(nonatomic, weak) IBOutlet UISlider *slider;
-
+- (void)forceLabelUpdate;
 @end

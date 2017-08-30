@@ -31,4 +31,9 @@
   [self.workspace evaluate];
 }
 
+- (void)forceLabelUpdate
+{
+   self.valueLabel.text = [NSString stringWithFormat:@"%.2f", _slider.value];
+}
+
 @end
