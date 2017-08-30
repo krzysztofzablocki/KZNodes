@@ -194,7 +194,8 @@
 
 #pragma mark - Storage
 
-- (void)saveNodesComposition {
+- (void)saveNodesComposition
+{
   NSMutableArray *objectsToStore = [NSMutableArray array];
   
   for (int index = 0; index < self.nodes.count; index++) {
@@ -240,13 +241,22 @@
   [[NSUserDefaults standardUserDefaults] setObject:objectsToStore forKey:@"nodesSavedArray"];
 }
 
-- (void)restoreNodesComposition {
+- (void)restoreNodesComposition
+{
   [self removeAllNodes];
-  
   NSUserDefaults *currentDefaults = [NSUserDefaults standardUserDefaults];
   NSArray *savedArray = [currentDefaults objectForKey:@"nodesSavedArray"];
-  for (int index = 0; index < savedArray.count; index++) {
-    NSDictionary *currentNode = savedArray[index];
+  
+  // Restore nodes
+  [self createNodesFrom:savedArray];
+  
+  // Restore socket links
+  [self createSocketLinksFrom:savedArray];
+}
+
+- (void)createNodesFrom:(NSArray*)nodesArray
+{
+  for (NSDictionary *currentNode in nodesArray) {
     KZNNode *node = [[[KZNNodeType nodeTypes]objectForKey:[currentNode objectForKey:@"NodeName"]] createNode];
     CGPoint center = CGPointMake([[currentNode objectForKey:@"PositionX"]floatValue], [[currentNode objectForKey:@"PositionY"]floatValue]);
     node.center = center;
@@ -265,9 +275,50 @@
       node = nodeT;
       nodeT = nil;
     }
-    
     [self addNode:node];
   }
+}
+
+- (void)createSocketLinksFrom:(NSArray*)nodesArray
+{
+  for (NSDictionary *currentNode in nodesArray) {
+    NSArray *inputDefinitions = [currentNode objectForKey:@"inputSocketsDefinition"];
+    for (NSDictionary *socketDefinition in inputDefinitions) {
+      NSUInteger currentNodeIndex = [[currentNode objectForKey:@"NodeIndex"]integerValue];
+      NSString *socketName = [socketDefinition objectForKey:@"SocketName"];
+      NSUInteger targetNodeIndex = [[socketDefinition objectForKey:@"ToNode"]integerValue];
+      NSString *targetSocketName = [socketDefinition objectForKey:@"ToSocketName"];
+      
+      KZNSocket *inputSocket = [self inputSocketWithName:socketName fromNode:self.nodes[currentNodeIndex]];
+      KZNSocket *outputSocket = [self outputSocketWithName:targetSocketName fromNode:self.nodes[targetNodeIndex]];
+      
+      [outputSocket addConnectionToSocket:inputSocket];
+      [self evaluate];
+    }
+  }
+}
+
+- (KZNSocket*)inputSocketWithName:(NSString*)socketName fromNode:(KZNNode*)node
+{
+  return [self socketWithName:socketName fromSockets:node.inputSockets];
+}
+
+- (KZNSocket*)outputSocketWithName:(NSString*)socketName fromNode:(KZNNode*)node
+{
+  return [self socketWithName:socketName fromSockets:node.outputSockets];
+}
+
+- (KZNSocket*)socketWithName:(NSString*)socketName fromSockets:(NSArray *)nodesArray
+{
+  KZNSocket* socket;
+  for (KZNSocket *currentSocket in nodesArray) {
+    if ([currentSocket.name isEqualToString:socketName]){
+      if (currentSocket.connections.count == 0) return currentSocket;
+      // If there is not a free socket, at least return the last one.
+      socket = currentSocket;
+    }
+  }
+  return socket;
 }
 
 - (void)removeAllNodes
