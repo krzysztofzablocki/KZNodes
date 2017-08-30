@@ -13,6 +13,8 @@
 #import "KZNSocket+Internal.h"
 #import "KZNNodeType.h"
 #import "KZNGridView.h"
+#import "KZNNodeWithText.h"
+#import "KZNNodeWithSlider.h"
 
 @interface KZNWorkspace () <UITableViewDataSource, UITableViewDelegate>
 @property(nonatomic, strong) NSMutableArray *nodes;
@@ -193,14 +195,60 @@
 #pragma mark - Storage
 
 - (void)saveNodesComposition {
-    NSData *arrayDataToStore = [NSKeyedArchiver archivedDataWithRootObject:self.nodes];
-    [[NSUserDefaults standardUserDefaults] setObject:arrayDataToStore forKey:@"nodesSavedArray"];
-    NSArray *oldArray = [NSKeyedUnarchiver unarchiveObjectWithData:arrayDataToStore];
-    NSLog(@"STORED %li objects", oldArray.count);
+    NSMutableArray *objectsToStore = [NSMutableArray array];
+
+    for (int index = 0; index < self.nodes.count; index++) {
+        KZNNode *node = self.nodes[index];
+        NSString *nodeBaseClass = NSStringFromClass ([node class]);
+
+        NSMutableDictionary *currentNode = [NSMutableDictionary dictionary];
+        [currentNode setObject:[NSNumber numberWithInt:index] forKey:@"NodeIndex"];
+        [currentNode setObject:node.type.name forKey:@"NodeName"];
+        [currentNode setObject:[NSNumber numberWithInt: node.type.evaluationMode] forKey:@"EvaluationMode"];
+        [currentNode setObject:nodeBaseClass forKey:@"ClassName"];
+
+        NSMutableArray *inputSocketsDefinition = [NSMutableArray array];
+        for (KZNSocket *socket in node.inputSockets) {
+            for (KZNSocket *toSocket in socket.connections) {
+                NSUInteger indexOfNode = [self.nodes indexOfObject:toSocket.parent];
+                NSMutableDictionary *socketDefinition = [NSMutableDictionary dictionary];
+                [socketDefinition setObject:socket.name forKey:@"SocketName"];
+                [socketDefinition setObject:[NSNumber numberWithInteger:indexOfNode] forKey:@"ToNode"];
+                [socketDefinition setObject:toSocket.name forKey:@"ToSocketName"];
+
+                [inputSocketsDefinition addObject:socketDefinition];
+            }
+        }
+
+        if (inputSocketsDefinition.count != 0) {
+            [currentNode setObject:inputSocketsDefinition forKey:@"inputSocketsDefinition"];
+        }
+
+        if ([nodeBaseClass isEqualToString:@"KZNNodeWithSlider"]) {
+            KZNNodeWithSlider *nodeS = self.nodes[index];
+            [currentNode setObject:[NSNumber numberWithFloat:nodeS.slider.value] forKey:@"SliderValue"];
+        }else if ([nodeBaseClass isEqualToString:@"KZNNodeWithText"]){
+            KZNNodeWithText *nodeT = self.nodes[index];
+            [currentNode setObject:nodeT.textField.text forKey:@"TextValue"];
+        }
+        [objectsToStore addObject:currentNode];
+    }
+    [[NSUserDefaults standardUserDefaults] setObject:objectsToStore forKey:@"nodesSavedArray"];
 }
 
 - (void)restoreNodesComposition {
     
 }
+
+/* STRING FROM CLASS
+ NSString *name = NSStringFromClass ([NSArray class]);
+ 
+ And back
+
+ Class arrayClass = NSClassFromString (name);
+ id anInstance = [[arrayClass alloc] init];
+ 
+
+ */
 
 @end
