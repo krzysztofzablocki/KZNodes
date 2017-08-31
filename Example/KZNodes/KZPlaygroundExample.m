@@ -255,10 +255,14 @@
 }
 
 - (void)saveNodesComposition {
-  [_workspace saveNodesComposition];
+  NSArray* serializedObjects = [_workspace arrayWithNodesComposition];
+  [[NSUserDefaults standardUserDefaults] setObject:serializedObjects forKey:@"nodesSavedArray"];
 }
 
 - (void)restoreNodesComposition {
-  [_workspace restoreNodesComposition];
+  NSUserDefaults *currentDefaults = [NSUserDefaults standardUserDefaults];
+  NSArray *savedArray = [currentDefaults objectForKey:@"nodesSavedArray"];
+
+  [_workspace restoreNodesCompositionFrom:savedArray];
 }
 @end

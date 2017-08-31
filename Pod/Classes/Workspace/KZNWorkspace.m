@@ -194,7 +194,7 @@
 
 #pragma mark - Storage
 
-- (void)saveNodesComposition
+- (NSArray*)arrayWithNodesComposition
 {
   NSMutableArray *objectsToStore = [NSMutableArray array];
 
@@ -238,21 +238,21 @@
     }
     [objectsToStore addObject:currentNode];
   }
-  [[NSUserDefaults standardUserDefaults] setObject:objectsToStore forKey:@"nodesSavedArray"];
+  return objectsToStore;
 }
 
-- (void)restoreNodesComposition
+- (void)restoreNodesCompositionFrom:(NSArray*)serializedObjects
 {
   [self removeAllNodes];
-  NSUserDefaults *currentDefaults = [NSUserDefaults standardUserDefaults];
-  NSArray *savedArray = [currentDefaults objectForKey:@"nodesSavedArray"];
+//  NSUserDefaults *currentDefaults = [NSUserDefaults standardUserDefaults];
+//  NSArray *savedArray = [currentDefaults objectForKey:@"nodesSavedArray"];
 
   // Restore nodes
-  [self createNodesFrom:savedArray];
+  [self createNodesFrom:serializedObjects];
 
   // Restore socket links after nodes are drawn
   dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-    [self createSocketLinksFrom:savedArray];
+    [self createSocketLinksFrom:serializedObjects];
   });
 
   [_gridView updateConnections];

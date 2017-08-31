@@ -24,6 +24,6 @@
 - (void)breakConnectionFromSocket:(KZNSocket *)outputSocket toSocket:(KZNSocket *)inputSocket;
 
 - (void)evaluate;
-- (void)saveNodesComposition;
-- (void)restoreNodesComposition;
+- (NSArray*)arrayWithNodesComposition;
+- (void)restoreNodesCompositionFrom:(NSArray*)serializedObjects;
 @end
