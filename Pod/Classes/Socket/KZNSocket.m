@@ -138,7 +138,6 @@
   } completion:nil];
 }
 
-
 - (CGSize)sizeThatFits:(CGSize)size
 {
   CGSize labelSize = [self.label sizeThatFits:size];

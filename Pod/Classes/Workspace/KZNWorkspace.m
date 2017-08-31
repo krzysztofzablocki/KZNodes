@@ -13,6 +13,28 @@
 #import "KZNSocket+Internal.h"
 #import "KZNNodeType.h"
 #import "KZNGridView.h"
+#import "KZNNodeWithText.h"
+#import "KZNNodeWithSlider.h"
+
+// NodeTypes
+static NSString * const kNodeTypeStandard = @"KZNNode";
+static NSString * const kNodeTypeWithSlider = @"KZNNodeWithSlider";
+static NSString * const kNodeTypeWithText = @"KZNNodeWithText";
+
+// Storage Array definitions
+static NSString * const kNodeIndex = @"NodeIndex";
+static NSString * const kNodeName = @"NodeName";
+static NSString * const kNodePositionX = @"PositionX";
+static NSString * const kNodePositionY = @"PositionY";
+static NSString * const kNodeEvaluationMode = @"EvaluationMode";
+static NSString * const kNodeClassName = @"ClassName";
+static NSString * const kNodeSliderValue = @"SliderValue";
+static NSString * const kNodeTextValue = @"TextValue";
+static NSString * const kSocketsDefinition = @"inputSocketsDefinition";
+static NSString * const kSocketName = @"SocketName";
+static NSString * const kNodeDestionationIndex = @"ToNode";
+static NSString * const kSocketDestinationName = @"ToSocketName";
+
 
 @interface KZNWorkspace () <UITableViewDataSource, UITableViewDelegate>
 @property(nonatomic, strong) NSMutableArray *nodes;
@@ -70,7 +92,7 @@
   }];
 
   node.workspace = nil;
-  [self.nodes removeObject:self];
+  [self.nodes removeObject:node];
   [self.gridView removeNode:node];
 }
 
@@ -188,6 +210,146 @@
   node.center = self.center;
   [self addNode:node];
   [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+#pragma mark - Storage
+
+- (NSArray*)arrayWithNodesComposition
+{
+  NSMutableArray *objectsToStore = [NSMutableArray array];
+
+  for (int index = 0; index < self.nodes.count; index++) {
+    KZNNode *node = self.nodes[index];
+    NSString *nodeBaseClass = NSStringFromClass ([node class]);
+
+    NSMutableDictionary *currentNode = [NSMutableDictionary dictionary];
+    [currentNode setObject:[NSNumber numberWithInt:index] forKey:kNodeIndex];
+    [currentNode setObject:node.type.name forKey:kNodeName];
+    [currentNode setObject:[NSNumber numberWithInt: node.type.evaluationMode] forKey:kNodeEvaluationMode];
+    [currentNode setObject:nodeBaseClass forKey:kNodeClassName];
+
+    CGPoint center = node.center;
+    [currentNode setObject:[NSNumber numberWithFloat:center.x] forKey:kNodePositionX];
+    [currentNode setObject:[NSNumber numberWithFloat:center.y] forKey:kNodePositionY];
+
+    NSMutableArray *inputSocketsDefinition = [NSMutableArray array];
+    for (KZNSocket *socket in node.inputSockets) {
+      for (KZNSocket *toSocket in socket.connections) {
+        NSUInteger indexOfNode = [self.nodes indexOfObject:toSocket.parent];
+        NSMutableDictionary *socketDefinition = [NSMutableDictionary dictionary];
+        [socketDefinition setObject:socket.name forKey:kSocketName];
+        [socketDefinition setObject:[NSNumber numberWithInteger:indexOfNode] forKey:kNodeDestionationIndex];
+        [socketDefinition setObject:toSocket.name forKey:kSocketDestinationName];
+
+        [inputSocketsDefinition addObject:socketDefinition];
+      }
+    }
+
+    if (inputSocketsDefinition.count != 0) {
+      [currentNode setObject:inputSocketsDefinition forKey:kSocketsDefinition];
+    }
+
+    if ([nodeBaseClass isEqualToString:kNodeTypeWithSlider]) {
+      KZNNodeWithSlider *nodeS = self.nodes[index];
+      [currentNode setObject:[NSNumber numberWithFloat:nodeS.slider.value] forKey:kNodeSliderValue];
+    }else if ([nodeBaseClass isEqualToString:kNodeTypeWithText]){
+      KZNNodeWithText *nodeT = self.nodes[index];
+      [currentNode setObject:nodeT.textField.text forKey:kNodeTextValue];
+    }
+    [objectsToStore addObject:currentNode];
+  }
+  return objectsToStore;
+}
+
+- (void)restoreNodesCompositionFrom:(NSArray*)serializedObjects
+{
+  [self removeAllNodes];
+
+  // Restore nodes
+  [self createNodesFrom:serializedObjects];
+
+  // Restore socket links after nodes are drawn
+  dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    [self createSocketLinksFrom:serializedObjects];
+  });
+
+  [_gridView updateConnections];
+}
+
+- (void)createNodesFrom:(NSArray*)nodesArray
+{
+  for (NSDictionary *currentNode in nodesArray) {
+    KZNNode *node = [[[KZNNodeType nodeTypes]objectForKey:[currentNode objectForKey:kNodeName]] createNode];
+    CGPoint center = CGPointMake([[currentNode objectForKey:kNodePositionX]floatValue], [[currentNode objectForKey:kNodePositionY]floatValue]);
+    node.center = center;
+    node.type.evaluationMode = [[currentNode objectForKey:kNodeEvaluationMode]intValue];
+
+    NSString *nodeBaseClass = [currentNode objectForKey:kNodeClassName];
+    if ([nodeBaseClass isEqualToString:kNodeTypeWithSlider]) {
+      KZNNodeWithSlider *nodeS = (KZNNodeWithSlider*)node;
+      nodeS.slider.value = [[currentNode objectForKey:kNodeSliderValue] floatValue];
+      [nodeS forceLabelUpdate];
+      node = nodeS;
+      nodeS = nil;
+    }else if ([nodeBaseClass isEqualToString:kNodeTypeWithText]) {
+      KZNNodeWithText *nodeT = (KZNNodeWithText*)node;
+      nodeT.textField.text = [currentNode objectForKey:kNodeTextValue];
+      node = nodeT;
+      nodeT = nil;
+    }
+    [self addNode:node];
+  }
+}
+
+- (void)createSocketLinksFrom:(NSArray*)nodesArray
+{
+  for (NSDictionary *currentNode in nodesArray) {
+    NSArray *inputDefinitions = [currentNode objectForKey:kSocketsDefinition];
+    for (NSDictionary *socketDefinition in inputDefinitions) {
+      NSUInteger currentNodeIndex = [[currentNode objectForKey:kNodeIndex]integerValue];
+      NSString *socketName = [socketDefinition objectForKey:kSocketName];
+      NSUInteger targetNodeIndex = [[socketDefinition objectForKey:kNodeDestionationIndex]integerValue];
+      NSString *targetSocketName = [socketDefinition objectForKey:kSocketDestinationName];
+
+      KZNSocket *inputSocket = [self inputSocketWithName:socketName fromNode:self.nodes[currentNodeIndex]];
+      KZNSocket *outputSocket = [self outputSocketWithName:targetSocketName fromNode:self.nodes[targetNodeIndex]];
+
+      [_gridView prepareConnectionLayerForSocket:inputSocket];
+      [outputSocket addConnectionToSocket:inputSocket];
+      [self evaluate];
+      [_gridView updateConnections];
+    }
+  }
+}
+
+- (KZNSocket*)inputSocketWithName:(NSString*)socketName fromNode:(KZNNode*)node
+{
+  return [self socketWithName:socketName fromSockets:node.inputSockets];
+}
+
+- (KZNSocket*)outputSocketWithName:(NSString*)socketName fromNode:(KZNNode*)node
+{
+  return [self socketWithName:socketName fromSockets:node.outputSockets];
+}
+
+- (KZNSocket*)socketWithName:(NSString*)socketName fromSockets:(NSArray *)nodesArray
+{
+  KZNSocket* socket;
+  for (KZNSocket *currentSocket in nodesArray) {
+    if ([currentSocket.name isEqualToString:socketName]){
+      if (currentSocket.connections.count == 0) return currentSocket;
+      // If there is not a free socket, at least return the last one.
+      socket = currentSocket;
+    }
+  }
+  return socket;
+}
+
+- (void)removeAllNodes
+{
+  while (self.nodes.count != 0) {
+    [self removeNode:self.nodes.lastObject];
+  }
 }
 
 @end

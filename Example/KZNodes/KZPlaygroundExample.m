@@ -16,6 +16,10 @@
 
 @import SceneKit;
 
+@interface KZPlaygroundExample()
+@property (nonatomic, strong) KZNWorkspace *workspace;
+@end
+
 @implementation KZPlaygroundExample
 - (void)setup
 {
@@ -27,9 +31,10 @@
   self.playgroundViewController.timelineHidden = YES;
   [[KZNNodeType nodeTypes] removeAllObjects];
 
+  [self addStoregeButtonsToViewController:self.playgroundViewController];
+
   //[self transformationWorkspace];
   [self coreImageWorkspace];
-
 }
 
 - (void)coreImageWorkspace
@@ -84,9 +89,9 @@
   }];
 
 
-  KZNWorkspace *workspace = [KZNWorkspace workspaceWithBounds:self.worksheetView.bounds];
+  _workspace = [KZNWorkspace workspaceWithBounds:self.worksheetView.bounds];
 
-  UIImageView *imageView = [[UIImageView alloc] initWithFrame:workspace.previewView.bounds];
+  UIImageView *imageView = [[UIImageView alloc] initWithFrame:_workspace.previewView.bounds];
   [KZNNodeType registerType:@"Display" inputs:@{ @"Image" : CIImage.class } outputs:nil processingBlock:^(id node, NSDictionary *inputs, NSMutableDictionary *outputs) {
     CIContext *context = [CIContext contextWithOptions:nil];
     CGImageRef img = [context createCGImage:inputs[@"Image"] fromRect:[inputs[@"Image"] extent]];
@@ -94,8 +99,8 @@
     CGImageRelease(img);
   }];
 
-  [self.worksheetView addSubview:workspace];
-  [workspace.previewView addSubview:imageView];
+  [self.worksheetView addSubview:_workspace];
+  [_workspace.previewView addSubview:imageView];
 }
 
 - (void)transformationWorkspace
@@ -127,9 +132,9 @@
     outputs[@"cos(x)"] = @(cos([inputs[@"X"] floatValue]));
   }];
 
-  KZNWorkspace *workspace = [KZNWorkspace workspaceWithBounds:CGRectMake(0, 0, 1024, 768)];
+  _workspace = [KZNWorkspace workspaceWithBounds:CGRectMake(0, 0, 1024, 768)];
 
-  SCNNode *model = [self addSceneKitToView:workspace.previewView];
+  SCNNode *model = [self addSceneKitToView:_workspace.previewView];
   [KZNNodeType registerType:@"Model" inputs:@{ @"scaleX" : NSNumber.class, @"scaleY" : NSNumber.class, @"scaleZ" : NSNumber.class, @"angle" : NSNumber.class } outputs:nil processingBlock:^(id node, NSDictionary *inputs, NSMutableDictionary *outputs) {
     float angle = [inputs[@"angle"] floatValue];
     float scaleX = inputs[@"scaleX"] ? [inputs[@"scaleX"] floatValue] : 1;
@@ -139,7 +144,7 @@
     model.transform = SCNMatrix4Scale(SCNMatrix4MakeRotation(angle, 0, 1, 0), scaleX, scaleY, scaleZ);
   }];
 
-  [self.worksheetView addSubview:workspace];
+  [self.worksheetView addSubview:_workspace];
 }
 
 - (SCNNode *)addSceneKitToView:(UIView *)view
@@ -223,5 +228,41 @@
 
   displayLabel.center = CGPointMake(CGRectGetWidth(view.bounds) * 0.5f, CGRectGetHeight(view.bounds) * 0.5f);
   [view addSubview:displayLabel];
+}
+
+#pragma mark - Actions
+
+- (void) addStoregeButtonsToViewController:(UIViewController*)vc {
+  UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+  [button setTitle:@"Save" forState:UIControlStateNormal];
+  [button addTarget:self
+             action:@selector(saveNodesComposition)
+   forControlEvents:UIControlEventTouchUpInside];
+  button.frame = CGRectMake(20.0, 20.0, 160.0, 40.0);
+  [button setBackgroundColor:[UIColor redColor]];
+  [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+  [vc.view addSubview:button];
+
+  UIButton *button2 = [UIButton buttonWithType:UIButtonTypeCustom];
+  [button2 setTitle:@"Restore" forState:UIControlStateNormal];
+  [button2 addTarget:self
+              action:@selector(restoreNodesComposition)
+    forControlEvents:UIControlEventTouchUpInside];
+  button2.frame = CGRectMake(200.0, 20.0, 160.0, 40.0);
+  [button2 setBackgroundColor:[UIColor redColor]];
+  [button2 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+  [vc.view addSubview:button2];
+}
+
+- (void)saveNodesComposition {
+  NSArray* serializedObjects = [_workspace arrayWithNodesComposition];
+  [[NSUserDefaults standardUserDefaults] setObject:serializedObjects forKey:@"nodesSavedArray"];
+}
+
+- (void)restoreNodesComposition {
+  NSUserDefaults *currentDefaults = [NSUserDefaults standardUserDefaults];
+  NSArray *savedArray = [currentDefaults objectForKey:@"nodesSavedArray"];
+
+  [_workspace restoreNodesCompositionFrom:savedArray];
 }
 @end
