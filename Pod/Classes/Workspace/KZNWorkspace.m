@@ -197,21 +197,21 @@
 - (void)saveNodesComposition
 {
   NSMutableArray *objectsToStore = [NSMutableArray array];
-  
+
   for (int index = 0; index < self.nodes.count; index++) {
     KZNNode *node = self.nodes[index];
     NSString *nodeBaseClass = NSStringFromClass ([node class]);
-    
+
     NSMutableDictionary *currentNode = [NSMutableDictionary dictionary];
     [currentNode setObject:[NSNumber numberWithInt:index] forKey:@"NodeIndex"];
     [currentNode setObject:node.type.name forKey:@"NodeName"];
     [currentNode setObject:[NSNumber numberWithInt: node.type.evaluationMode] forKey:@"EvaluationMode"];
     [currentNode setObject:nodeBaseClass forKey:@"ClassName"];
-    
+
     CGPoint center = node.center;
     [currentNode setObject:[NSNumber numberWithFloat:center.x] forKey:@"PositionX"];
     [currentNode setObject:[NSNumber numberWithFloat:center.y] forKey:@"PositionY"];
-    
+
     NSMutableArray *inputSocketsDefinition = [NSMutableArray array];
     for (KZNSocket *socket in node.inputSockets) {
       for (KZNSocket *toSocket in socket.connections) {
@@ -220,15 +220,15 @@
         [socketDefinition setObject:socket.name forKey:@"SocketName"];
         [socketDefinition setObject:[NSNumber numberWithInteger:indexOfNode] forKey:@"ToNode"];
         [socketDefinition setObject:toSocket.name forKey:@"ToSocketName"];
-        
+
         [inputSocketsDefinition addObject:socketDefinition];
       }
     }
-    
+
     if (inputSocketsDefinition.count != 0) {
       [currentNode setObject:inputSocketsDefinition forKey:@"inputSocketsDefinition"];
     }
-    
+
     if ([nodeBaseClass isEqualToString:@"KZNNodeWithSlider"]) {
       KZNNodeWithSlider *nodeS = self.nodes[index];
       [currentNode setObject:[NSNumber numberWithFloat:nodeS.slider.value] forKey:@"SliderValue"];
@@ -246,13 +246,15 @@
   [self removeAllNodes];
   NSUserDefaults *currentDefaults = [NSUserDefaults standardUserDefaults];
   NSArray *savedArray = [currentDefaults objectForKey:@"nodesSavedArray"];
-  
+
   // Restore nodes
   [self createNodesFrom:savedArray];
-  
-  // Restore socket links
-  [self createSocketLinksFrom:savedArray];
-  
+
+  // Restore socket links after nodes are drawn
+  dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    [self createSocketLinksFrom:savedArray];
+  });
+
   [_gridView updateConnections];
 }
 
@@ -263,7 +265,7 @@
     CGPoint center = CGPointMake([[currentNode objectForKey:@"PositionX"]floatValue], [[currentNode objectForKey:@"PositionY"]floatValue]);
     node.center = center;
     node.type.evaluationMode = [[currentNode objectForKey:@"EvaluationMode"]intValue];
-    
+
     NSString *nodeBaseClass = [currentNode objectForKey:@"ClassName"];
     if ([nodeBaseClass isEqualToString:@"KZNNodeWithSlider"]) {
       KZNNodeWithSlider *nodeS = (KZNNodeWithSlider*)node;
@@ -290,10 +292,10 @@
       NSString *socketName = [socketDefinition objectForKey:@"SocketName"];
       NSUInteger targetNodeIndex = [[socketDefinition objectForKey:@"ToNode"]integerValue];
       NSString *targetSocketName = [socketDefinition objectForKey:@"ToSocketName"];
-      
+
       KZNSocket *inputSocket = [self inputSocketWithName:socketName fromNode:self.nodes[currentNodeIndex]];
       KZNSocket *outputSocket = [self outputSocketWithName:targetSocketName fromNode:self.nodes[targetNodeIndex]];
-      
+
       [_gridView prepareConnectionLayerForSocket:inputSocket];
       [outputSocket addConnectionToSocket:inputSocket];
       [self evaluate];
@@ -331,16 +333,5 @@
     [self removeNode:self.nodes.lastObject];
   }
 }
-
-/* STRING FROM CLASS
- NSString *name = NSStringFromClass ([NSArray class]);
- 
- And back
-
- Class arrayClass = NSClassFromString (name);
- id anInstance = [[arrayClass alloc] init];
- 
-
- */
 
 @end
