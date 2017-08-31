@@ -35,5 +35,5 @@ extern NSString *const KZPPlaygroundDidChangeImplementationNotification;
 - (void)setup;
 
 //! called on each code change
-- (id)run;
+- (void)run;
 @end

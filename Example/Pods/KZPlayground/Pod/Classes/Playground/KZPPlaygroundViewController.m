@@ -17,7 +17,7 @@
 @property(strong, nonatomic) KZPPlayground *currentPlayground;
 @property(unsafe_unretained, nonatomic) IBOutlet NSLayoutConstraint *leadingTimelineConstraint;
 
-@property (nonatomic, assign) KZNWorkspace *workspace;
+//@property (nonatomic, assign) KZNWorkspace *workspace;
 @end
 
 @implementation KZPPlaygroundViewController
@@ -65,7 +65,7 @@
     [self.timelineViewController playgroundSetupCompleted];
     [self executePlayground];
       
-      [self addStoregeButtons];
+    //[self addStoregeButtons];
   });
 }
 
@@ -106,7 +106,8 @@
 - (void)executePlayground
 {
   [self reset];
-  _workspace = [self.currentPlayground run];
+  //_workspace = [self.currentPlayground run];
+  [self.currentPlayground run];
   [self playgroundDidRun];
 }
 
@@ -163,7 +164,7 @@
 
   return nil;
 }
-
+/*
 #pragma mark - Actions
 
 - (void) addStoregeButtons {
@@ -195,5 +196,5 @@
 - (void)restoreNodesComposition {
     [_workspace restoreNodesComposition];
 }
-
+*/
 @end

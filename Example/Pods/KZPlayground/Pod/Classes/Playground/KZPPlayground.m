@@ -66,9 +66,9 @@ NSString *const KZPPlaygroundDidChangeImplementationNotification = @"KZPPlaygrou
 
 }
 
-- (id)run
+- (void)run
 {
-    return nil;
+
 }
 
 - (void)updateOnClassInjection
