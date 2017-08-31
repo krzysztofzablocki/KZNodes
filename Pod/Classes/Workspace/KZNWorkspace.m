@@ -16,6 +16,26 @@
 #import "KZNNodeWithText.h"
 #import "KZNNodeWithSlider.h"
 
+// NodeTypes
+static NSString * const kNodeTypeStandard = @"KZNNode";
+static NSString * const kNodeTypeWithSlider = @"KZNNodeWithSlider";
+static NSString * const kNodeTypeWithText = @"KZNNodeWithText";
+
+// Storage Array definitions
+static NSString * const kNodeIndex = @"NodeIndex";
+static NSString * const kNodeName = @"NodeName";
+static NSString * const kNodePositionX = @"PositionX";
+static NSString * const kNodePositionY = @"PositionY";
+static NSString * const kNodeEvaluationMode = @"EvaluationMode";
+static NSString * const kNodeClassName = @"ClassName";
+static NSString * const kNodeSliderValue = @"SliderValue";
+static NSString * const kNodeTextValue = @"TextValue";
+static NSString * const kSocketsDefinition = @"inputSocketsDefinition";
+static NSString * const kSocketName = @"SocketName";
+static NSString * const kNodeDestionationIndex = @"ToNode";
+static NSString * const kSocketDestinationName = @"ToSocketName";
+
+
 @interface KZNWorkspace () <UITableViewDataSource, UITableViewDelegate>
 @property(nonatomic, strong) NSMutableArray *nodes;
 
@@ -203,38 +223,38 @@
     NSString *nodeBaseClass = NSStringFromClass ([node class]);
 
     NSMutableDictionary *currentNode = [NSMutableDictionary dictionary];
-    [currentNode setObject:[NSNumber numberWithInt:index] forKey:@"NodeIndex"];
-    [currentNode setObject:node.type.name forKey:@"NodeName"];
-    [currentNode setObject:[NSNumber numberWithInt: node.type.evaluationMode] forKey:@"EvaluationMode"];
-    [currentNode setObject:nodeBaseClass forKey:@"ClassName"];
+    [currentNode setObject:[NSNumber numberWithInt:index] forKey:kNodeIndex];
+    [currentNode setObject:node.type.name forKey:kNodeName];
+    [currentNode setObject:[NSNumber numberWithInt: node.type.evaluationMode] forKey:kNodeEvaluationMode];
+    [currentNode setObject:nodeBaseClass forKey:kNodeClassName];
 
     CGPoint center = node.center;
-    [currentNode setObject:[NSNumber numberWithFloat:center.x] forKey:@"PositionX"];
-    [currentNode setObject:[NSNumber numberWithFloat:center.y] forKey:@"PositionY"];
+    [currentNode setObject:[NSNumber numberWithFloat:center.x] forKey:kNodePositionX];
+    [currentNode setObject:[NSNumber numberWithFloat:center.y] forKey:kNodePositionY];
 
     NSMutableArray *inputSocketsDefinition = [NSMutableArray array];
     for (KZNSocket *socket in node.inputSockets) {
       for (KZNSocket *toSocket in socket.connections) {
         NSUInteger indexOfNode = [self.nodes indexOfObject:toSocket.parent];
         NSMutableDictionary *socketDefinition = [NSMutableDictionary dictionary];
-        [socketDefinition setObject:socket.name forKey:@"SocketName"];
-        [socketDefinition setObject:[NSNumber numberWithInteger:indexOfNode] forKey:@"ToNode"];
-        [socketDefinition setObject:toSocket.name forKey:@"ToSocketName"];
+        [socketDefinition setObject:socket.name forKey:kSocketName];
+        [socketDefinition setObject:[NSNumber numberWithInteger:indexOfNode] forKey:kNodeDestionationIndex];
+        [socketDefinition setObject:toSocket.name forKey:kSocketDestinationName];
 
         [inputSocketsDefinition addObject:socketDefinition];
       }
     }
 
     if (inputSocketsDefinition.count != 0) {
-      [currentNode setObject:inputSocketsDefinition forKey:@"inputSocketsDefinition"];
+      [currentNode setObject:inputSocketsDefinition forKey:kSocketsDefinition];
     }
 
-    if ([nodeBaseClass isEqualToString:@"KZNNodeWithSlider"]) {
+    if ([nodeBaseClass isEqualToString:kNodeTypeWithSlider]) {
       KZNNodeWithSlider *nodeS = self.nodes[index];
-      [currentNode setObject:[NSNumber numberWithFloat:nodeS.slider.value] forKey:@"SliderValue"];
-    }else if ([nodeBaseClass isEqualToString:@"KZNNodeWithText"]){
+      [currentNode setObject:[NSNumber numberWithFloat:nodeS.slider.value] forKey:kNodeSliderValue];
+    }else if ([nodeBaseClass isEqualToString:kNodeTypeWithText]){
       KZNNodeWithText *nodeT = self.nodes[index];
-      [currentNode setObject:nodeT.textField.text forKey:@"TextValue"];
+      [currentNode setObject:nodeT.textField.text forKey:kNodeTextValue];
     }
     [objectsToStore addObject:currentNode];
   }
@@ -244,8 +264,6 @@
 - (void)restoreNodesCompositionFrom:(NSArray*)serializedObjects
 {
   [self removeAllNodes];
-//  NSUserDefaults *currentDefaults = [NSUserDefaults standardUserDefaults];
-//  NSArray *savedArray = [currentDefaults objectForKey:@"nodesSavedArray"];
 
   // Restore nodes
   [self createNodesFrom:serializedObjects];
@@ -261,21 +279,21 @@
 - (void)createNodesFrom:(NSArray*)nodesArray
 {
   for (NSDictionary *currentNode in nodesArray) {
-    KZNNode *node = [[[KZNNodeType nodeTypes]objectForKey:[currentNode objectForKey:@"NodeName"]] createNode];
-    CGPoint center = CGPointMake([[currentNode objectForKey:@"PositionX"]floatValue], [[currentNode objectForKey:@"PositionY"]floatValue]);
+    KZNNode *node = [[[KZNNodeType nodeTypes]objectForKey:[currentNode objectForKey:kNodeName]] createNode];
+    CGPoint center = CGPointMake([[currentNode objectForKey:kNodePositionX]floatValue], [[currentNode objectForKey:kNodePositionY]floatValue]);
     node.center = center;
-    node.type.evaluationMode = [[currentNode objectForKey:@"EvaluationMode"]intValue];
+    node.type.evaluationMode = [[currentNode objectForKey:kNodeEvaluationMode]intValue];
 
-    NSString *nodeBaseClass = [currentNode objectForKey:@"ClassName"];
-    if ([nodeBaseClass isEqualToString:@"KZNNodeWithSlider"]) {
+    NSString *nodeBaseClass = [currentNode objectForKey:kNodeClassName];
+    if ([nodeBaseClass isEqualToString:kNodeTypeWithSlider]) {
       KZNNodeWithSlider *nodeS = (KZNNodeWithSlider*)node;
-      nodeS.slider.value = [[currentNode objectForKey:@"SliderValue"] floatValue];
+      nodeS.slider.value = [[currentNode objectForKey:kNodeSliderValue] floatValue];
       [nodeS forceLabelUpdate];
       node = nodeS;
       nodeS = nil;
-    }else if ([nodeBaseClass isEqualToString:@"KZNNodeWithText"]) {
+    }else if ([nodeBaseClass isEqualToString:kNodeTypeWithText]) {
       KZNNodeWithText *nodeT = (KZNNodeWithText*)node;
-      nodeT.textField.text = [currentNode objectForKey:@"TextValue"];
+      nodeT.textField.text = [currentNode objectForKey:kNodeTextValue];
       node = nodeT;
       nodeT = nil;
     }
@@ -286,12 +304,12 @@
 - (void)createSocketLinksFrom:(NSArray*)nodesArray
 {
   for (NSDictionary *currentNode in nodesArray) {
-    NSArray *inputDefinitions = [currentNode objectForKey:@"inputSocketsDefinition"];
+    NSArray *inputDefinitions = [currentNode objectForKey:kSocketsDefinition];
     for (NSDictionary *socketDefinition in inputDefinitions) {
-      NSUInteger currentNodeIndex = [[currentNode objectForKey:@"NodeIndex"]integerValue];
-      NSString *socketName = [socketDefinition objectForKey:@"SocketName"];
-      NSUInteger targetNodeIndex = [[socketDefinition objectForKey:@"ToNode"]integerValue];
-      NSString *targetSocketName = [socketDefinition objectForKey:@"ToSocketName"];
+      NSUInteger currentNodeIndex = [[currentNode objectForKey:kNodeIndex]integerValue];
+      NSString *socketName = [socketDefinition objectForKey:kSocketName];
+      NSUInteger targetNodeIndex = [[socketDefinition objectForKey:kNodeDestionationIndex]integerValue];
+      NSString *targetSocketName = [socketDefinition objectForKey:kSocketDestinationName];
 
       KZNSocket *inputSocket = [self inputSocketWithName:socketName fromNode:self.nodes[currentNodeIndex]];
       KZNSocket *outputSocket = [self outputSocketWithName:targetSocketName fromNode:self.nodes[targetNodeIndex]];
