@@ -261,16 +261,22 @@ static NSString * const kSocketDestinationName = @"ToSocketName";
   return objectsToStore;
 }
 
-- (void)restoreNodesCompositionFrom:(NSArray*)serializedObjects
+- (void)restoreNodesCompositionFrom:(NSArray*)serializedObjects removeNodesFromGrid:(BOOL)removeNodes;
 {
-  [self removeAllNodes];
+  NSUInteger firstnodeId;
+  if (removeNodes) {
+    [self removeAllNodes];
+    firstnodeId = 0;
+  } else {
+    firstnodeId = self.nodes.count;
+  }
 
   // Restore nodes
   [self createNodesFrom:serializedObjects];
 
   // Restore socket links after nodes are drawn
   dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-    [self createSocketLinksFrom:serializedObjects];
+    [self createSocketLinksFrom:serializedObjects firstNodeIndex:firstnodeId];
   });
 
   [_gridView updateConnections];
@@ -301,14 +307,14 @@ static NSString * const kSocketDestinationName = @"ToSocketName";
   }
 }
 
-- (void)createSocketLinksFrom:(NSArray*)nodesArray
+- (void)createSocketLinksFrom:(NSArray*)nodesArray firstNodeIndex:(NSUInteger)firstNodeIndex
 {
   for (NSDictionary *currentNode in nodesArray) {
     NSArray *inputDefinitions = [currentNode objectForKey:kSocketsDefinition];
     for (NSDictionary *socketDefinition in inputDefinitions) {
-      NSUInteger currentNodeIndex = [[currentNode objectForKey:kNodeIndex]integerValue];
+      NSUInteger currentNodeIndex = [[currentNode objectForKey:kNodeIndex]integerValue] + firstNodeIndex;
       NSString *socketName = [socketDefinition objectForKey:kSocketName];
-      NSUInteger targetNodeIndex = [[socketDefinition objectForKey:kNodeDestionationIndex]integerValue];
+      NSUInteger targetNodeIndex = [[socketDefinition objectForKey:kNodeDestionationIndex]integerValue] + firstNodeIndex;
       NSString *targetSocketName = [socketDefinition objectForKey:kSocketDestinationName];
 
       KZNSocket *inputSocket = [self inputSocketWithName:socketName fromNode:self.nodes[currentNodeIndex]];

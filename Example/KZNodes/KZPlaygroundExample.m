@@ -263,6 +263,6 @@
   NSUserDefaults *currentDefaults = [NSUserDefaults standardUserDefaults];
   NSArray *savedArray = [currentDefaults objectForKey:@"nodesSavedArray"];
 
-  [_workspace restoreNodesCompositionFrom:savedArray];
+  [_workspace restoreNodesCompositionFrom:savedArray removeNodesFromGrid:YES];
 }
 @end
