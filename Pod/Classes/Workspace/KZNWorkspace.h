@@ -25,5 +25,5 @@
 
 - (void)evaluate;
 - (NSArray*)arrayWithNodesComposition;
-- (void)restoreNodesCompositionFrom:(NSArray*)serializedObjects;
+- (void)restoreNodesCompositionFrom:(NSArray*)serializedObjects removeNodesFromGrid:(BOOL)removeNodes;
 @end
